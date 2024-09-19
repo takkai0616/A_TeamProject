@@ -8,13 +8,15 @@ public class PlayerSmall : MonoBehaviour
     // Start is called before the first frame update
 
     [SerializeField]
-    private WallChecker wallChecker_Right = null;
+    private CollisionChecker wallChecker_Right = null;
     [SerializeField]
-    private WallChecker wallChecker_Left = null;
+    private CollisionChecker wallChecker_Left = null;
     [SerializeField]
-    private WallChecker wallChecker_Up = null;
+    private CollisionChecker wallChecker_Up = null;
     [SerializeField]
-    private WallChecker wallChecker_Down = null;
+    private CollisionChecker wallChecker_Down = null;
+    [SerializeField]
+    private CollisionChecker wallChecker_Top = null;
     public float rotationPeriod = 0.03f;     // —×‚ÉˆÚ“®‚·‚é‚Ì‚É‚©‚©‚éŽžŠÔ
     public float sideLength = 1f;           // Cube‚Ì•Ó‚Ì’·‚³
 
@@ -70,6 +72,11 @@ public class PlayerSmall : MonoBehaviour
         }
         if (wallChecker_Right.IsCasted && y > 0)
         {
+            y = 0;
+        }
+        if (wallChecker_Top.IsCasted)
+        {
+            x = 0;
             y = 0;
         }
 

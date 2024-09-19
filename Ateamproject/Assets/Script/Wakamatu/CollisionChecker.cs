@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WallChecker : MonoBehaviour
+public class CollisionChecker : MonoBehaviour
 {
 
     [SerializeField]

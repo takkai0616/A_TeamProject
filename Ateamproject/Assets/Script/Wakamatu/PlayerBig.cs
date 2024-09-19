@@ -7,13 +7,13 @@ public class PlayerBig : MonoBehaviour
     // Start is called before the first frame update
     // 壁との交差判定用のチェッカーを指定します。
     [SerializeField]
-    private WallChecker wallChecker_Right = null;
+    private CollisionChecker wallChecker_Right = null;
     [SerializeField]
-    private WallChecker wallChecker_Left = null;
+    private CollisionChecker wallChecker_Left = null;
     [SerializeField]
-    private WallChecker wallChecker_Up = null;
+    private CollisionChecker wallChecker_Up = null;
     [SerializeField]
-    private WallChecker wallChecker_Down = null;
+    private CollisionChecker wallChecker_Down = null;
 
     public float rotationPeriod = 0.03f;     // 隣に移動するのにかかる時間
     public float sideLength = 2f;           // Cubeの辺の長さ

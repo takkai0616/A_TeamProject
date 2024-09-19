@@ -70,6 +70,59 @@ MonoBehaviour:
   y: 0
   z: 0
   IsCasted: 0
+--- !u!1 &423966228554924432
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 606934972696550941}
+  - component: {fileID: 7730270071763772382}
+  m_Layer: 0
+  m_Name: CollisionChecker(T)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &606934972696550941
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 423966228554924432}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 0.9, y: 0.1, z: 0.9}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9061217087224524641}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &7730270071763772382
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 423966228554924432}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1914097282177314807
 GameObject:
   m_ObjectHideFlags: 0
@@ -349,6 +402,7 @@ Transform:
   - {fileID: 7312845765048756029}
   - {fileID: 2072620864465853599}
   - {fileID: 7694915134228135609}
+  - {fileID: 606934972696550941}
   m_Father: {fileID: 5869278693983439716}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1818360608 &6444863870012769284
@@ -489,6 +543,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 327472a495d54fe48b8a4658faec3357, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wallChecker_Right: {fileID: 0}
+  wallChecker_Left: {fileID: 0}
+  wallChecker_Up: {fileID: 0}
+  wallChecker_Down: {fileID: 0}
   rotationPeriod: 0.3
   sideLength: 1
 --- !u!1 &4974483364050425931
