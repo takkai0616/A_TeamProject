@@ -8,6 +8,14 @@ public class rezorutScene: MonoBehaviour
     // 次のシーンを読み込み可能な場合はtrue、それ以外はfalse
     bool isLoadable = false;
 
+    bool Serect = true;
+
+    [SerializeField]
+    GameObject serect;
+
+    [SerializeField]
+    GameObject serect2;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,14 +38,45 @@ public class rezorutScene: MonoBehaviour
 
     private void Update()
     {
+        if (Serect == true)
+        {   //ゲーム開始
+
+            //選択の表示変えたい
+            serect.SetActive(true);
+            serect2.SetActive(false);
+
+            if (isLoadable)
+            {
+                SceneManager.LoadScene("MainScene");
+            }
+
+            if (Input.GetKey(KeyCode.RightArrow))
+            { Serect = false; }
+        }
+
+        if (Serect == false)
+        {   //終了
+
+            //選択の表示変えたい
+            serect.SetActive(false);
+            serect2.SetActive(true);
+
+            if (isLoadable)
+            {
+                SceneManager.LoadScene("Title Scene");
+            }
+
+            if (Input.GetKey(KeyCode.LeftArrow))
+            { Serect = true; }
+        }
+
+
+        //決定
         if (Input.GetKey(KeyCode.Return))
         {
             StartCoroutine(OnStart());
         }
 
-        if (isLoadable)
-        {
-            SceneManager.LoadScene("Title Scene");
-        }
+
     }
 }

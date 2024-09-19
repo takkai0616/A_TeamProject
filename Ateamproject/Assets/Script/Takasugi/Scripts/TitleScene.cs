@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.InputSystem;
 
 // タイトル画面の進行を制御します。
 public class TitleScene : MonoBehaviour
@@ -83,7 +83,7 @@ public class TitleScene : MonoBehaviour
         {
             StartCoroutine(OnStart());
         }
-
+        
         
     }
 }
