@@ -13,24 +13,16 @@ public class CollisionChecker : MonoBehaviour
     private float z;
 
     public bool IsCasted = false;
-    private void OnTriggerEnter(Collider col)
+    private void OnTriggerStay(Collider col)
     {
-        if (col.gameObject.tag == "Wall")
-        {
-            IsCasted = true;
-        }
-        if (col.gameObject.tag == "PlayerBig")
+        if (col.gameObject.tag == "Wall" || col.gameObject.tag == "PlayerBig")
         {
             IsCasted = true;
         }
     }
     private void OnTriggerExit(Collider col)
     {
-        if (col.gameObject.tag == "Wall")
-        {
-            IsCasted = false;
-        }
-        if (col.gameObject.tag == "PlayerBig")
+        if (col.gameObject.tag == "Wall" || col.gameObject.tag == "PlayerBig")
         {
             IsCasted = false;
         }

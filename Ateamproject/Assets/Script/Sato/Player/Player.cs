@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -94,7 +95,7 @@ public class Player : MonoBehaviour
             float distanceX = -directionX * radius * (Mathf.Cos(45f * Mathf.Deg2Rad) - Mathf.Cos(45f * Mathf.Deg2Rad + thetaRad));      // X軸の移動距離。 -の符号はキーと移動の向きを合わせるため。
             float distanceY = radius * (Mathf.Sin(45f * Mathf.Deg2Rad + thetaRad) - Mathf.Sin(45f * Mathf.Deg2Rad));                        // Y軸の移動距離
             float distanceZ = directionZ * radius * (Mathf.Cos(45f * Mathf.Deg2Rad) - Mathf.Cos(45f * Mathf.Deg2Rad + thetaRad));           // Z軸の移動距離
-            transform.position = new Vector3(startPos.x + distanceX * sideLength, startPos.y + distanceY, startPos.z + distanceZ * sideLength);                       // 現在の位置をセット
+            transform.position = new Vector3(startPos.x + distanceX, startPos.y + distanceY, startPos.z + distanceZ);                       // 現在の位置をセット
 
             // 回転
             transform.rotation = Quaternion.Lerp(fromRotation, toRotation, ratio);      // Quaternion.Lerpで現在の回転角をセット
@@ -107,6 +108,12 @@ public class Player : MonoBehaviour
                 directionZ = 0;
                 rotationTime = 0;
             }
+        }
+
+        //シーン移動
+        if (finish == true)
+        {
+            SceneManager.LoadScene("rezorutScene");
         }
     }
 }
