@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Takasugi/Seens/rezorutScene.unity
     guid: fbecc0ceb00b23b4d9607d0d3458eb11
+  - enabled: 1
+    path: Assets/Scenes/Sato/SelectScene.unity
+    guid: 711ed781b41b3fe45845fca0facb6e61
+  - enabled: 1
+    path: Assets/Scenes/Sato/SatoScene.unity
+    guid: bf0937af6462b134bae0a5479fb50074
   m_configObjects: {}

@@ -1,8 +1,8 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
-
     public float rotationPeriod = 0.3f;     // 隣に移動するのにかかる時間
     public float sideLength = 1f;           // Cubeの辺の長さ
 
@@ -25,21 +25,29 @@ public class Player : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
+        //var leftStickValue = Gamepad.all[0].leftStick.ReadValue();
 
-        float x = 0;
-        float y = 0;
+        //if (leftStickValue == Vector2.zero) return;
 
-        // キー入力を拾う。
-        x = Input.GetAxisRaw("Horizontal");
-        if (x == 0)
-        {
-            y = Input.GetAxisRaw("Vertical");
-        }
+        //if (Mathf.Abs(leftStickValue.x) < Mathf.Abs(leftStickValue.y))
+        //{
+        //    leftStickValue.x = 0;
+        //    leftStickValue.y /= Mathf.Abs(leftStickValue.y);
+        //}
+        //else
+        //{
+        //    leftStickValue.x /= Mathf.Abs(leftStickValue.x);
+        //    leftStickValue.y = 0;
+        //}
 
+        //PlayerMove(leftStickValue.x, leftStickValue.y);
+    }
 
+    // Update is called once per frame
+    public void PlayerMove(float x, float y)
+    {
         // キー入力がある　かつ　Cubeが回転中でない場合、Cubeを回転する。
         if ((x != 0 || y != 0) && !isRotate)
         {
@@ -60,7 +68,6 @@ public class Player : MonoBehaviour
 
         if (isRotate)
         {
-
             rotationTime += Time.fixedDeltaTime;                                    // 経過時間を増やす
             float ratio = Mathf.Lerp(0, 1, rotationTime / rotationPeriod);          // 回転の時間に対する今の経過時間の割合
 
@@ -72,7 +79,7 @@ public class Player : MonoBehaviour
             transform.position = new Vector3(startPos.x + distanceX, startPos.y + distanceY, startPos.z + distanceZ);                       // 現在の位置をセット
 
             // 回転
-            transform.rotation = Quaternion.Lerp(fromRotation, toRotation, ratio);      // Quaternion.Lerpで現在の回転角をセット（なんて便利な関数）
+            transform.rotation = Quaternion.Lerp(fromRotation, toRotation, ratio);      // Quaternion.Lerpで現在の回転角をセット
 
             // 移動・回転終了時に各パラメータを初期化。isRotateフラグを下ろす。
             if (ratio == 1)
