@@ -263,6 +263,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bc8f7bd0a6f59c4695f6621a792a0f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialPos:
+  - {x: 0, y: 0, z: 1}
+  - {x: 5, y: 0, z: 5}
+  - {x: 7, y: 0, z: 7}
+  - {x: 2, y: 0, z: 2}
 --- !u!1 &1931500212
 GameObject:
   m_ObjectHideFlags: 0
