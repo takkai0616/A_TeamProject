@@ -5,6 +5,15 @@ using UnityEngine;
 public class PlayerBig : MonoBehaviour
 {
     // Start is called before the first frame update
+    // 壁との交差判定用のチェッカーを指定します。
+    [SerializeField]
+    private WallChecker wallChecker_Right = null;
+    [SerializeField]
+    private WallChecker wallChecker_Left = null;
+    [SerializeField]
+    private WallChecker wallChecker_Up = null;
+    [SerializeField]
+    private WallChecker wallChecker_Down = null;
 
     public float rotationPeriod = 0.03f;     // 隣に移動するのにかかる時間
     public float sideLength = 2f;           // Cubeの辺の長さ
@@ -30,12 +39,40 @@ public class PlayerBig : MonoBehaviour
         float y = 0;
 
         // キー入力を拾う。
-        x = Input.GetAxisRaw("Vertical");
-        if (x == 0)
+        if (Input.GetKey(KeyCode.W))
         {
-            y = Input.GetAxisRaw("Horizontal");
+            x = 1;
+        }
+        else if (Input.GetKey(KeyCode.S))
+        {
+            x = -1;
+        }
+        else if (Input.GetKey(KeyCode.D))
+        {
+            y = 1;
+
+        }
+        else if (Input.GetKey(KeyCode.A))
+        {
+            y = -1;
         }
 
+        if (wallChecker_Up.IsCasted && x > 0)
+        {
+            x = 0;
+        }
+        if (wallChecker_Down.IsCasted && x < 0)
+        {
+            x = 0;
+        }
+        if (wallChecker_Left.IsCasted && y < 0)
+        {
+            y = 0;
+        }
+        if (wallChecker_Right.IsCasted && y > 0)
+        {
+            y = 0;
+        }
 
         // キー入力がある　かつ　Cubeが回転中でない場合、Cubeを回転する。
         if ((x != 0 || y != 0) && !isRotate)
@@ -58,7 +95,7 @@ public class PlayerBig : MonoBehaviour
         {
 
             rotationTime += Time.fixedDeltaTime;                                    // 経過時間を増やす
-            float ratio = Mathf.Lerp(0, 1, rotationTime / rotationPeriod / 20);          // 回転の時間に対する今の経過時間の割合
+            float ratio = Mathf.Lerp(0, 1, rotationTime / rotationPeriod / 2);          // 回転の時間に対する今の経過時間の割合
 
             // 移動
             float thetaRad = Mathf.Lerp(0, Mathf.PI / 2f, ratio);                   // 回転角をラジアンで。

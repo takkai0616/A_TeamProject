@@ -7,6 +7,14 @@ public class PlayerSmall : MonoBehaviour
 {
     // Start is called before the first frame update
 
+    [SerializeField]
+    private WallChecker wallChecker_Right = null;
+    [SerializeField]
+    private WallChecker wallChecker_Left = null;
+    [SerializeField]
+    private WallChecker wallChecker_Up = null;
+    [SerializeField]
+    private WallChecker wallChecker_Down = null;
     public float rotationPeriod = 0.03f;     // —×‚ÉˆÚ“®‚·‚é‚Ì‚É‚©‚©‚éŽžŠÔ
     public float sideLength = 1f;           // Cube‚Ì•Ó‚Ì’·‚³
 
@@ -31,10 +39,38 @@ public class PlayerSmall : MonoBehaviour
         float y = 0;
 
         // ƒL[“ü—Í‚ðE‚¤B
-        x = Input.GetAxisRaw("Vertical");
-        if (x == 0)
+        if(Input.GetKey(KeyCode.UpArrow))
         {
-            y = Input.GetAxisRaw("Horizontal");
+            x = 1;
+        }
+        else if (Input.GetKey(KeyCode.DownArrow))
+        {
+            x = -1;
+        }
+        else if (Input.GetKey(KeyCode.RightArrow))
+        {
+            y = 1;
+
+        }
+        else if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            y = -1;
+        }
+        if (wallChecker_Up.IsCasted && x > 0)
+        {
+            x = 0;
+        }
+        if (wallChecker_Down.IsCasted && x < 0)
+        {
+            x = 0;
+        }
+        if (wallChecker_Left.IsCasted && y < 0)
+        {
+            y = 0;
+        }
+        if (wallChecker_Right.IsCasted && y > 0)
+        {
+            y = 0;
         }
 
 
