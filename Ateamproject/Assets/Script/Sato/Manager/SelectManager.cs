@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public class SelectManager : MonoBehaviour
 {
     //キャラクターオブジェクト
-    [SerializeField] GameObject[] charObj;
+    [SerializeField] PlayerNumber[] charObj;
 
     bool[] isDicision;
 
@@ -16,7 +16,7 @@ public class SelectManager : MonoBehaviour
         for (int i = 0; i < isDicision.Length; ++i)
         {
             isDicision[i] = false;
-        }
+        }       
     }
 
     // Update is called once per frame
@@ -36,8 +36,7 @@ public class SelectManager : MonoBehaviour
 
             if (isDicision[i]) continue;//すでに決定されている
 
-            //"i"番目のPlayerの使用キャラは"j"のキャラに設定
-            CommonData.charactorObj[i] = charObj[i];
+            charObj[i].Number = i;//キャラクタにコントローラーの番号を記録
             isDicision[i] = true;
             break;
         }
