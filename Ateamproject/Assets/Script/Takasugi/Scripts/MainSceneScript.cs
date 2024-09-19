@@ -2,12 +2,17 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 // タイトル画面の進行を制御します。
-public class MainScene : MonoBehaviour
+public class MainSceneScript: MonoBehaviour
 {
     // 次のシーンを読み込み可能な場合はtrue、それ以外はfalse
     bool isLoadable = false;
 
+   [SerializeField]
+    float time = 0;
+
+    int timeup = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,9 +40,18 @@ public class MainScene : MonoBehaviour
             StartCoroutine(OnStart());
         }
 
-        if (isLoadable)
+        if(time >= 30)
+        {
+            timeup = 1;
+        }
+
+        if (isLoadable|| timeup == 1)
         {
             SceneManager.LoadScene("rezorutScene");
         }
+
+        
+
+        time += 1 * Time.deltaTime;
     }
 }
