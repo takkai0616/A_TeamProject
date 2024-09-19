@@ -6,18 +6,9 @@ public class MultiPlay : MonoBehaviour
     [SerializeField] Player[] player;
 
     int playerCount;
-
-    bool[] isRotate;
- 
     void Start()
     {
-        playerCount = 4;
-        isRotate = new bool[playerCount];
-
-        for(int i = 0; i < playerCount; ++i)
-        {
-            isRotate[i] = false;
-        }
+        playerCount = Gamepad.all.Count;
     }
 
     // Update is called once per frame
@@ -25,17 +16,9 @@ public class MultiPlay : MonoBehaviour
     {
         for (int i = 0; i < playerCount; ++i)
         {
-            if (Gamepad.all.Count == i) break;
-
             var leftStickValue = Gamepad.all[i].leftStick.ReadValue();
-           
-            if (leftStickValue == Vector2.zero)
-            {
-                isRotate[i] = false;
-                continue;
-            }
 
-            if (leftStickValue == Vector2.zero) return;
+            if (leftStickValue.x == 0 && leftStickValue.y == 0) continue;
 
             if (Mathf.Abs(leftStickValue.x) < Mathf.Abs(leftStickValue.y))
             {
