@@ -162,6 +162,7 @@ MonoBehaviour:
   wallChecker_Top: {fileID: 2079650732}
   rotationPeriod: 0.5
   sideLength: 2
+  Interval: 1
 --- !u!54 &70188581
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2186,6 +2187,7 @@ MonoBehaviour:
   wallChecker_Top: {fileID: 2079650732}
   rotationPeriod: 0.5
   sideLength: 2
+  Interval: 1
 --- !u!54 &1951755095
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2570,15 +2572,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 171214737109068888, guid: 549c709bc56a8944aab160e957d993cd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 171214737109068888, guid: 549c709bc56a8944aab160e957d993cd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.75
+      value: -0.7
       objectReference: {fileID: 0}
     - target: {fileID: 171214737109068888, guid: 549c709bc56a8944aab160e957d993cd, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -6.5
+      value: -11
       objectReference: {fileID: 0}
     - target: {fileID: 171214737109068888, guid: 549c709bc56a8944aab160e957d993cd, type: 3}
       propertyPath: m_LocalRotation.w
