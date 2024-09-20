@@ -424,6 +424,7 @@ GameObject:
   - component: {fileID: 7202626653629225496}
   - component: {fileID: 8857959721726146351}
   - component: {fileID: 4428054418328405476}
+  - component: {fileID: 1070045619187396877}
   m_Layer: 0
   m_Name: PlayerSmall
   m_TagString: Player
@@ -563,6 +564,20 @@ MonoBehaviour:
   wallChecker_Top: {fileID: 4688125580006050978}
   rotationPeriod: 0.3
   sideLength: 1
+  Interval: 1
+--- !u!114 &1070045619187396877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3652366473626495452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de089ac20e8954348b7b3280a4fb2036, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  footPrintPrefab: {fileID: 4020258129602877568, guid: 0d61fa49830624147b49cb4273df268e, type: 3}
 --- !u!1 &5670677799818809500
 GameObject:
   m_ObjectHideFlags: 0
@@ -716,6 +731,7 @@ MonoBehaviour:
   wallChecker_Top: {fileID: 4688125580006050978}
   rotationPeriod: 0.3
   sideLength: 1
+  Interval: 1
 --- !u!1 &5846029813928317401
 GameObject:
   m_ObjectHideFlags: 0

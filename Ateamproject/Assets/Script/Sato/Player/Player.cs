@@ -24,7 +24,7 @@ public class Player : MonoBehaviour
     float time;
 
     bool inter = false;
-    bool isRotate = false;                  // Cubeが回転中かどうかを検出するフラグ
+    public bool isRotate = false;                  // Cubeが回転中かどうかを検出するフラグ
     float directionX = 0;                   // 回転方向フラグ
     float directionZ = 0;                   // 回転方向フラグ
 
