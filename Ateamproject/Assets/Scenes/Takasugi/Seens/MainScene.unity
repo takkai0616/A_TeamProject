@@ -163,6 +163,7 @@ MonoBehaviour:
   rotationPeriod: 0.5
   sideLength: 2
   Interval: 1
+  isRotate: 0
 --- !u!54 &70188581
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -394,6 +395,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1070045619187396877, guid: 8d054e1d756ebb14595922600fd1e139, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 957358432}
+    - target: {fileID: 1070045619187396877, guid: 8d054e1d756ebb14595922600fd1e139, type: 3}
+      propertyPath: footPrintPrefab
+      value: 
+      objectReference: {fileID: 5042504317430541503, guid: 4e9fe73fb2ab59e4588e7ca371c825ab, type: 3}
     - target: {fileID: 2398489815948066205, guid: 8d054e1d756ebb14595922600fd1e139, type: 3}
       propertyPath: moob
       value: 
@@ -2075,6 +2084,7 @@ MonoBehaviour:
   rotationPeriod: 0.5
   sideLength: 2
   Interval: 1
+  isRotate: 0
 --- !u!54 &1951755095
 Rigidbody:
   m_ObjectHideFlags: 0
