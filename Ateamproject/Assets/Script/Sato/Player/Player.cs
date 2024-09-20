@@ -4,7 +4,6 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] PlayManager moob;
     [SerializeField]
     private CollisionChecker wallChecker_Right = null;
     [SerializeField]
@@ -30,26 +29,14 @@ public class Player : MonoBehaviour
     Quaternion fromRotation;                // 回転前のCubeのクォータニオン
     Quaternion toRotation;                  // 回転後のCubeのクォータニオン
 
-    public bool[][] stagemanager;
 
     bool finish = false;
-
-    bool ismoob;
 
     // Use this for initialization
     void Start()
     {
-
-        ismoob = true;
         // 重心の回転軌道半径を計算
         radius = sideLength * Mathf.Sqrt(2f) / 2f;
-        for (int i = 0; i < 6; i++)
-        {
-            for (int j = 0; j < 6; j++)
-            {
-                stagemanager[i][j] = false;
-            }
-        }
     }
 
     // Update is called once per frame
@@ -79,25 +66,8 @@ public class Player : MonoBehaviour
             y = 0;
             finish = true;
         }
-        if ((x != 0 || y != 0) && !isRotate)
-        {
-            int intposx = (int)transform.position.x / 2;
-            int intposz = (int)transform.position.z / 2 * -1;
-            int intx = (int)x;
-            int inty = (int)y * -1;
-            stagemanager[intposx][intposz] = true;
-            if (moob.moob[intposx + intx][intposz + inty])
-            {
-                ismoob = false;
-            }
-            else
-            {
-                stagemanager[intposx + intx][intposz + inty] = true;
-                stagemanager[intposx][intposz] = false;
-            }
-        }
             // キー入力がある　かつ　Cubeが回転中でない場合、Cubeを回転する。
-            if ((x != 0 || y != 0) && !isRotate && ismoob )
+            if ((x != 0 || y != 0) && !isRotate)
         {
             directionX = -x;                                                             // 回転方向セット (x,yどちらかは必ず0)
             directionZ = y;                                                             // 回転方向セット (x,yどちらかは必ず0)
@@ -136,7 +106,6 @@ public class Player : MonoBehaviour
                 directionX = 0;
                 directionZ = 0;
                 rotationTime = 0;
-                ismoob = true;
             }
         }
 
