@@ -383,7 +383,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -848,7 +848,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c7ba4a027c0697c4f853b643bc4a2b97, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c7ba4a027c0697c4f853b643bc4a2b97, type: 3}
       propertyPath: m_LocalPosition.y
@@ -888,7 +888,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c7ba4a027c0697c4f853b643bc4a2b97, type: 3}
       propertyPath: m_ConstrainProportionsScale
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -3540725318260445992, guid: c7ba4a027c0697c4f853b643bc4a2b97, type: 3}
       propertyPath: m_Materials.Array.data[0]
