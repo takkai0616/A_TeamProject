@@ -18,7 +18,12 @@ public class Player : MonoBehaviour
     public float rotationPeriod = 0.3f;     // 隣に移動するのにかかる時間
     [SerializeField]
     public float sideLength = 1f;           // Cubeの辺の長さ
+    [SerializeField]
+    public float Interval = 1f;
 
+    float time;
+
+    bool inter = false;
     bool isRotate = false;                  // Cubeが回転中かどうかを検出するフラグ
     float directionX = 0;                   // 回転方向フラグ
     float directionZ = 0;                   // 回転方向フラグ
@@ -39,6 +44,14 @@ public class Player : MonoBehaviour
         radius = sideLength * Mathf.Sqrt(2f) / 2f;
     }
 
+    private void Update()
+    {
+        time += Time.deltaTime;
+        if (Interval <= time)
+        {
+            inter = true;
+        }
+    }
     // Update is called once per frame
     public void PlayerMove(float x, float y)
     {
@@ -66,8 +79,8 @@ public class Player : MonoBehaviour
             y = 0;
             finish = true;
         }
-            // キー入力がある　かつ　Cubeが回転中でない場合、Cubeを回転する。
-            if ((x != 0 || y != 0) && !isRotate)
+        // キー入力がある　かつ　Cubeが回転中でない場合、Cubeを回転する。
+        if ((x != 0 || y != 0) && !isRotate && inter)
         {
             directionX = -x;                                                             // 回転方向セット (x,yどちらかは必ず0)
             directionZ = y;                                                             // 回転方向セット (x,yどちらかは必ず0)
@@ -102,10 +115,12 @@ public class Player : MonoBehaviour
             // 移動・回転終了時に各パラメータを初期化。isRotateフラグを下ろす。
             if (ratio == 1)
             {
+                inter = false;
                 isRotate = false;
                 directionX = 0;
                 directionZ = 0;
                 rotationTime = 0;
+                time = 0;
             }
         }
 
