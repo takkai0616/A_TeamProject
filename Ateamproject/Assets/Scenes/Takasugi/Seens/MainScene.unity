@@ -162,7 +162,7 @@ MonoBehaviour:
   wallChecker_Top: {fileID: 2079650732}
   rotationPeriod: 0.5
   sideLength: 2
-  Interval: 1
+  Interval: 0.7
   isRotate: 0
 --- !u!54 &70188581
 Rigidbody:
@@ -2083,7 +2083,7 @@ MonoBehaviour:
   wallChecker_Top: {fileID: 2079650732}
   rotationPeriod: 0.5
   sideLength: 2
-  Interval: 1
+  Interval: 0.7
   isRotate: 0
 --- !u!54 &1951755095
 Rigidbody:
