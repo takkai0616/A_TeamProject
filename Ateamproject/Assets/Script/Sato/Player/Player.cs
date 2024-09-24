@@ -20,6 +20,12 @@ public class Player : MonoBehaviour
     public float sideLength = 1f;           // Cube‚Ì•Ó‚Ì’·‚³
     [SerializeField]
     public float Interval = 1f;
+    [SerializeField]
+    private float x;
+    [SerializeField]
+    private float y;
+    [SerializeField]
+    private float z;
 
     float time;
 
@@ -42,6 +48,7 @@ public class Player : MonoBehaviour
     {
         // dS‚Ì‰ñ“]‹O“¹”¼Œa‚ğŒvZ
         radius = sideLength * Mathf.Sqrt(2f) / 2f;
+        transform.position = new Vector3(x, y, z);
     }
 
     private void Update()
