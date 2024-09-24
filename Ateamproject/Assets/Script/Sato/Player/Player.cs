@@ -54,12 +54,9 @@ public class Player : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        rotationPeriod = 0.1f;
-        sideLength = 1f;
-        intervalSecond = 1f;
+        
 
         isInterval = false;
-        rotationTime = 0;
 
         // dS‚Ì‰ñ“]‹O“¹”¼Œa‚ğŒvZ
         radius = sideLength * Mathf.Sqrt(2f) / 2f;

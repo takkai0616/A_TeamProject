@@ -136,16 +136,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6662012442982599350, guid: 0c4383d40deaa144d9371e08bb1cd903, type: 3}
       propertyPath: x
-      value: -3.26
+      value: 10.5
       objectReference: {fileID: 0}
     - target: {fileID: 6662012442982599350, guid: 0c4383d40deaa144d9371e08bb1cd903, type: 3}
       propertyPath: y
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6662012442982599350, guid: 0c4383d40deaa144d9371e08bb1cd903, type: 3}
       propertyPath: z
-      value: 6.4
+      value: -0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 6662012442982599350, guid: 0c4383d40deaa144d9371e08bb1cd903, type: 3}
+      propertyPath: CollisionChecker_Top
+      value: 
+      objectReference: {fileID: 768279118}
     - target: {fileID: 8981863966623150943, guid: 0c4383d40deaa144d9371e08bb1cd903, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.26
@@ -1012,11 +1016,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1600615118795520446, guid: ae69052a58a95a54f98f6e98e54e33ce, type: 3}
       propertyPath: x
-      value: -6.36
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1600615118795520446, guid: ae69052a58a95a54f98f6e98e54e33ce, type: 3}
       propertyPath: z
-      value: 1.23
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3311062775699542220, guid: ae69052a58a95a54f98f6e98e54e33ce, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1455,6 +1459,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3311062775699542220, guid: ae69052a58a95a54f98f6e98e54e33ce, type: 3}
   m_PrefabInstance: {fileID: 550783191}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &768279118 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4560141471067864378, guid: ae69052a58a95a54f98f6e98e54e33ce, type: 3}
+  m_PrefabInstance: {fileID: 550783191}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cdd6d33fcb9c044598c9c7614eca88f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &779971975
 GameObject:
   m_ObjectHideFlags: 0
@@ -2182,22 +2197,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 789946692}
     m_Modifications:
+    - target: {fileID: 1732708759489639999, guid: 0c4383d40deaa144d9371e08bb1cd903, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 11e14ba79cbcdf147a68f5667aaa97b3, type: 2}
     - target: {fileID: 3268931849058136016, guid: 0c4383d40deaa144d9371e08bb1cd903, type: 3}
       propertyPath: m_Name
       value: PlayerBig (1)
       objectReference: {fileID: 0}
     - target: {fileID: 6662012442982599350, guid: 0c4383d40deaa144d9371e08bb1cd903, type: 3}
       propertyPath: x
-      value: 3.21
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6662012442982599350, guid: 0c4383d40deaa144d9371e08bb1cd903, type: 3}
       propertyPath: y
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6662012442982599350, guid: 0c4383d40deaa144d9371e08bb1cd903, type: 3}
       propertyPath: z
-      value: 6.21
+      value: -10.5
       objectReference: {fileID: 0}
+    - target: {fileID: 6662012442982599350, guid: 0c4383d40deaa144d9371e08bb1cd903, type: 3}
+      propertyPath: CollisionChecker_Top
+      value: 
+      objectReference: {fileID: 768279118}
     - target: {fileID: 8981863966623150943, guid: 0c4383d40deaa144d9371e08bb1cd903, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.21
@@ -2620,16 +2643,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6662012442982599350, guid: 0c4383d40deaa144d9371e08bb1cd903, type: 3}
       propertyPath: x
-      value: 9.86
+      value: 10.5
       objectReference: {fileID: 0}
     - target: {fileID: 6662012442982599350, guid: 0c4383d40deaa144d9371e08bb1cd903, type: 3}
       propertyPath: y
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6662012442982599350, guid: 0c4383d40deaa144d9371e08bb1cd903, type: 3}
       propertyPath: z
-      value: 0.65
+      value: -10.5
       objectReference: {fileID: 0}
+    - target: {fileID: 6662012442982599350, guid: 0c4383d40deaa144d9371e08bb1cd903, type: 3}
+      propertyPath: CollisionChecker_Top
+      value: 
+      objectReference: {fileID: 768279118}
     - target: {fileID: 8981863966623150943, guid: 0c4383d40deaa144d9371e08bb1cd903, type: 3}
       propertyPath: m_LocalPosition.x
       value: 9.93
