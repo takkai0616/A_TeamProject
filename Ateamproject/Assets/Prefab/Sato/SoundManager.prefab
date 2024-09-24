@@ -44,4 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfb262e08cc50914a854e7c4e1f854f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  testClip: {fileID: 0}
+  bigBoxRollSE: {fileID: 8300000, guid: 91a94ea134732e1489bc54f443470925, type: 3}
+  smallBoxRollSE: {fileID: 8300000, guid: c05d675a632f65c44ab47c84a3afd732, type: 3}
+  smallBoxRollSE2: {fileID: 8300000, guid: 543621fc3a4127a46b9848d5c67497e6, type: 3}
+  finishSE: {fileID: 8300000, guid: 647231dab1af81f4faaaa06ecd862f6b, type: 3}
+  resultButtonSE: {fileID: 8300000, guid: 01adfe7905b223545b58b49950afcbf7, type: 3}
