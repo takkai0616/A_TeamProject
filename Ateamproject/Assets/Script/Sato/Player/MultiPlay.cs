@@ -12,14 +12,15 @@ public class MultiPlay : MonoBehaviour
     {
         playerCount = Gamepad.all.Count;
         charactorObject = GameObject.Find("Charactors");
-        CharactorRoot charactorRoot = new CharactorRoot();
+        CharactorRoot charactorRoot =  charactorObject.GetComponent<CharactorRoot>();
         charactorRoot.InitilizePlayerStartPosition();
         charactorTrans = charactorObject.GetComponent<Transform>();
         players = new Player[charactorTrans.childCount];
         for (int i = 0; i < charactorTrans.childCount; i++)
         {
             Transform child = charactorTrans.GetChild(i);
-            players[i] = child.GetComponent<Player>();           
+            Transform grandChild = child.GetChild(0);
+            players[i] = grandChild.GetComponent<Player>();           
         }
     }
 
