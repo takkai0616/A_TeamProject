@@ -319,18 +319,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d3cc58e21c7aaa4dafbed3e0a91338d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wallChecker_Right: {fileID: 650198279103228094}
-  wallChecker_Left: {fileID: 4536829550451434700}
-  wallChecker_Up: {fileID: 5364558220934428713}
-  wallChecker_Down: {fileID: 8857985289857720399}
-  wallChecker_Top: {fileID: 0}
+  CollisionChecker_Right: {fileID: 650198279103228094}
+  CollisionChecker_Left: {fileID: 4536829550451434700}
+  CollisionChecker_Up: {fileID: 5364558220934428713}
+  CollisionChecker_Down: {fileID: 8857985289857720399}
+  CollisionChecker_Top: {fileID: 0}
   rotationPeriod: 0.5
   sideLength: 2
-  Interval: 1
+  IntervalSecond: 0
   x: 10.5
   y: 0.5
   z: -0.5
   isRotate: 0
+  finish: 0
 --- !u!1 &6199994646383256440
 GameObject:
   m_ObjectHideFlags: 0
