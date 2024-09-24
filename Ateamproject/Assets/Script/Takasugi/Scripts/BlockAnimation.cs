@@ -3,58 +3,43 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class Hantei : MonoBehaviour
+public class BlockAnimation : MonoBehaviour
 {
-    bool OnBlock = false;//判定があるか否か
-
-    float anime = 0;//アニメーション起動フラグ
-
-    float OFF = 0;//リセットのアレ
+    private bool isBlock = false;//判定があるか否か
 
     private Animator animator;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         animator = gameObject.GetComponent<Animator>();
     }
- 
+
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
 
-        if (OnBlock == false) ;
+        if (!isBlock) 
         {
             animator.SetBool("On Block", false);
         }
 
-        if (OnBlock == true) ;
+        if (isBlock)
         {
             animator.SetBool("On Block", true);
         }
-
-        if (anime == 1)
-        {
-
-
-        }
-
-        
     }
-    void OnCollisionEnter(Collision collision)
+
+    private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.tag == "Player")
         {
-
-            OnBlock = true;
-
+            isBlock = true;
         }
 
         if (collision.gameObject.tag == "PlayerBig")
         {
-
-            OnBlock = true;
-
+            isBlock = true;
         }
     }
 }

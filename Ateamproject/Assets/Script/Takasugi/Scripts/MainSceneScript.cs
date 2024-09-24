@@ -6,18 +6,17 @@ using UnityEngine.SceneManagement;
 // タイトル画面の進行を制御します。
 public class MainSceneScript: MonoBehaviour
 {
+
     // 次のシーンを読み込み可能な場合はtrue、それ以外はfalse
-    bool isLoadable = false;
+    private bool isLoadable = false;
 
-   [SerializeField]
-    float time = 0;
+    private bool isTimeUp = false;
 
-    int timeup = 0;
-    // Start is called before the first frame update
-    void Start()
+    private TimeCount timeCount;
+
+    private void Start()
     {
-
-      
+        timeCount = GetComponent<TimeCount>();
     }
 
     // ２秒待機後に次のシーンを読込み可能にします。
@@ -27,11 +26,6 @@ public class MainSceneScript: MonoBehaviour
         isLoadable = true;
     }
 
-    // 決定ボタン操作の際に呼び出され、次のシーンを読み込みます。
-    public void LoadNextScene()
-    {
-        
-    }
 
     private void Update()
     {
@@ -40,18 +34,14 @@ public class MainSceneScript: MonoBehaviour
             StartCoroutine(OnStart());
         }
 
-        if(time >= 30)
+        if (timeCount.InGameTime() <= 0)
         {
-            timeup = 1;
+            isTimeUp = true;
         }
 
-        if (isLoadable|| timeup == 1)
+        if (isLoadable|| isTimeUp)
         {
-            SceneManager.LoadScene("rezorutScene");
+            SceneManager.LoadScene("ResultScene");
         }
-
-        
-
-        time += 1 * Time.deltaTime;
     }
 }

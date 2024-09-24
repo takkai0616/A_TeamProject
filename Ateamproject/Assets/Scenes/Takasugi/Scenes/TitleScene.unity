@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 8768733}
   - component: {fileID: 8768732}
   m_Layer: 5
-  m_Name: serect (2)
+  m_Name: SelectDown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -476,7 +476,7 @@ GameObject:
   - component: {fileID: 738566753}
   - component: {fileID: 738566752}
   m_Layer: 5
-  m_Name: stret
+  m_Name: Start
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1000,7 +1000,7 @@ GameObject:
   - component: {fileID: 1304505505}
   - component: {fileID: 1304505504}
   m_Layer: 5
-  m_Name: exzt
+  m_Name: Exit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1279,7 +1279,7 @@ GameObject:
   - component: {fileID: 1608067334}
   - component: {fileID: 1608067333}
   m_Layer: 5
-  m_Name: serect
+  m_Name: SelectUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1397,8 +1397,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2255394cc0a247d4a8faa671143f832b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  serect: {fileID: 1056226086}
-  serect2: {fileID: 1590652888}
+  selectArrow:
+  - {fileID: 1608067332}
+  - {fileID: 8768731}
 --- !u!4 &1756813656
 Transform:
   m_ObjectHideFlags: 0
