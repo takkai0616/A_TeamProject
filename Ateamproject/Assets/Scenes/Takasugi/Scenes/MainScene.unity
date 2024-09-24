@@ -269,18 +269,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d3cc58e21c7aaa4dafbed3e0a91338d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wallChecker_Right: {fileID: 2059341220}
-  wallChecker_Left: {fileID: 879798592}
-  wallChecker_Up: {fileID: 73122488}
-  wallChecker_Down: {fileID: 434116470}
-  wallChecker_Top: {fileID: 2079650732}
+  CollisionChecker_Right: {fileID: 0}
+  CollisionChecker_Left: {fileID: 0}
+  CollisionChecker_Up: {fileID: 0}
+  CollisionChecker_Down: {fileID: 0}
+  CollisionChecker_Top: {fileID: 0}
   rotationPeriod: 0.5
   sideLength: 2
-  Interval: 0.7
+  IntervalSecond: 0
   x: 0
   y: 0
   z: 0
   isRotate: 0
+  finish: 0
 --- !u!54 &70188581
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1335,7 +1336,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 334c34fc5f39a7144b039f528f45e4c4, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 6094bc32c726d2c46ac98a0c2079b2c5, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -4627,6 +4628,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7aca21729f4461748888e247fbeb4979, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isStart: 0
 --- !u!4 &961814455
 Transform:
   m_ObjectHideFlags: 0
@@ -7815,18 +7817,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d3cc58e21c7aaa4dafbed3e0a91338d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wallChecker_Right: {fileID: 2002315381}
-  wallChecker_Left: {fileID: 765857824}
-  wallChecker_Up: {fileID: 676810683}
-  wallChecker_Down: {fileID: 1542775050}
-  wallChecker_Top: {fileID: 2079650732}
+  CollisionChecker_Right: {fileID: 0}
+  CollisionChecker_Left: {fileID: 0}
+  CollisionChecker_Up: {fileID: 0}
+  CollisionChecker_Down: {fileID: 0}
+  CollisionChecker_Top: {fileID: 0}
   rotationPeriod: 0.5
   sideLength: 2
-  Interval: 0.7
+  IntervalSecond: 0
   x: 0
   y: 0
   z: 0
   isRotate: 0
+  finish: 0
 --- !u!54 &1951755095
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -8574,17 +8577,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &2079650732 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4688125580006050978, guid: 8d054e1d756ebb14595922600fd1e139, type: 3}
-  m_PrefabInstance: {fileID: 159099128}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8cdd6d33fcb9c044598c9c7614eca88f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2083606299 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2398489815948066205, guid: 8d054e1d756ebb14595922600fd1e139, type: 3}
