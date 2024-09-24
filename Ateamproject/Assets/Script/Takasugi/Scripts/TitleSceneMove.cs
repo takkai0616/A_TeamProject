@@ -1,19 +1,19 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 // タイトル画面の進行を制御します。
-public class ResultSceneScript: MonoBehaviour
+public class TitleSceneMove : MonoBehaviour
 {
     // 次のシーンを読み込み可能な場合はtrue、それ以外はfalse
-    private  bool isLoadable = false;
+    private bool isLoadable = false;
 
     private bool isSelect = true;
 
     [SerializeField]
     private GameObject[] selectArrow;
 
-   
 
     // ２秒待機後に次のシーンを読込み可能にします。
     IEnumerator OnStart()
@@ -37,7 +37,7 @@ public class ResultSceneScript: MonoBehaviour
                 SceneManager.LoadScene("MainScene");
             }
 
-            if (Input.GetKey(KeyCode.RightArrow))
+            if (Input.GetKey(KeyCode.DownArrow))
             { isSelect = false; }
         }
 
@@ -50,12 +50,13 @@ public class ResultSceneScript: MonoBehaviour
 
             if (isLoadable)
             {
-                SceneManager.LoadScene("TitleScene");
+                Application.Quit();
             }
 
-            if (Input.GetKey(KeyCode.LeftArrow))
+            if (Input.GetKey(KeyCode.UpArrow))
             { isSelect = true; }
         }
+
 
 
         //決定
@@ -63,7 +64,7 @@ public class ResultSceneScript: MonoBehaviour
         {
             StartCoroutine(OnStart());
         }
-
-
+        
+        
     }
 }

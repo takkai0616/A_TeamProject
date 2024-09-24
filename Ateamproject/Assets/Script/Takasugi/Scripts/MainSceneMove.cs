@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 
 // タイトル画面の進行を制御します。
-public class MainSceneScript: MonoBehaviour
+public class MainSceneMove: MonoBehaviour
 {
 
     // 次のシーンを読み込み可能な場合はtrue、それ以外はfalse
