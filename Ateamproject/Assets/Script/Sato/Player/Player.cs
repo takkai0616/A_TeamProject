@@ -4,22 +4,25 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
+    //当たり判定指定
     [SerializeField]
-    private CollisionChecker wallChecker_Right = null;
+    private CollisionChecker CollisionChecker_Right = null;
     [SerializeField]
-    private CollisionChecker wallChecker_Left = null;
+    private CollisionChecker CollisionChecker_Left = null;
     [SerializeField]
-    private CollisionChecker wallChecker_Up = null;
+    private CollisionChecker CollisionChecker_Up = null;
     [SerializeField]
-    private CollisionChecker wallChecker_Down = null;
+    private CollisionChecker CollisionChecker_Down = null;
     [SerializeField]
-    private CollisionChecker wallChecker_Top = null;
+    private CollisionChecker CollisionChecker_Top = null;
     [SerializeField]
-    public float rotationPeriod = 0.3f;     // 隣に移動するのにかかる時間
+    public float rotationPeriod;     // 隣に移動するのにかかる時間
     [SerializeField]
-    public float sideLength = 1f;           // Cubeの辺の長さ
+    public float sideLength;           // Cubeの辺の長さ
     [SerializeField]
-    public float Interval = 1f;
+    public float IntervalSecond;
+
+    //座標指定用
     [SerializeField]
     private float x;
     [SerializeField]
@@ -29,25 +32,32 @@ public class Player : MonoBehaviour
 
     public int Number { get; set; }
 
-    float time;
+    private float time;
 
-    bool inter = false;
-    public bool isRotate = false;                  // Cubeが回転中かどうかを検出するフラグ
-    float directionX = 0;                   // 回転方向フラグ
-    float directionZ = 0;                   // 回転方向フラグ
+    private bool IsInterval;
+    public bool isRotate;                  // Cubeが回転中かどうかを検出するフラグ
+    private float directionX = 0;                   // 回転方向フラグ
+    private float directionZ = 0;                   // 回転方向フラグ
 
-    Vector3 startPos;                       // 回転前のCubeの位置
-    float rotationTime = 0;                 // 回転中の時間経過
-    float radius;                           // 重心の軌道半径
-    Quaternion fromRotation;                // 回転前のCubeのクォータニオン
-    Quaternion toRotation;                  // 回転後のCubeのクォータニオン
+    private Vector3 startPos;                       // 回転前のCubeの位置
+    private float rotationTime;                 // 回転中の時間経過
+    private float radius;                           // 重心の軌道半径
+    private Quaternion fromRotation;                // 回転前のCubeのクォータニオン
+    private Quaternion toRotation;                  // 回転後のCubeのクォータニオン
 
 
-    bool finish = false;
+    public bool finish = false;
 
     // Use this for initialization
     void Start()
     {
+        rotationPeriod = 0.1f;
+        sideLength = 1f;
+        IntervalSecond = 1f;
+
+        IsInterval = false;
+        rotationTime = 0;
+
         // 重心の回転軌道半径を計算
         radius = sideLength * Mathf.Sqrt(2f) / 2f;
         transform.position = new Vector3(x, y, z);
@@ -56,9 +66,9 @@ public class Player : MonoBehaviour
     private void Update()
     {
         time += Time.deltaTime;
-        if (Interval <= time)
+        if (IntervalSecond <= time)
         {
-            inter = true;
+            IsInterval = true;
         }
     }
     // Update is called once per frame
@@ -66,30 +76,30 @@ public class Player : MonoBehaviour
     {
         //var leftStickValue = Gamepad.all[0].leftStick.ReadValue();
 
-        if (wallChecker_Up.IsCasted && y > 0)
+        if (CollisionChecker_Up.IsCasted && y > 0)
         {
             y = 0;
         }
-        if (wallChecker_Down.IsCasted && y < 0)
+        if (CollisionChecker_Down.IsCasted && y < 0)
         {
             y = 0;
         }
-        if (wallChecker_Left.IsCasted && x < 0)
+        if (CollisionChecker_Left.IsCasted && x < 0)
         {
             x = 0;
         }
-        if (wallChecker_Right.IsCasted && x > 0)
+        if (CollisionChecker_Right.IsCasted && x > 0)
         {
             x = 0;
         }
-        if (wallChecker_Top.IsCasted)
+        if (CollisionChecker_Top.IsCasted)
         {
             x = 0;
             y = 0;
             finish = true;
         }
         // キー入力がある　かつ　Cubeが回転中でない場合、Cubeを回転する。
-        if ((x != 0 || y != 0) && !isRotate && inter)
+        if ((x != 0 || y != 0) && !isRotate && IsInterval)
         {
             directionX = -x;                                                             // 回転方向セット (x,yどちらかは必ず0)
             directionZ = y;                                                             // 回転方向セット (x,yどちらかは必ず0)
@@ -124,7 +134,7 @@ public class Player : MonoBehaviour
             // 移動・回転終了時に各パラメータを初期化。isRotateフラグを下ろす。
             if (ratio == 1)
             {
-                inter = false;
+                IsInterval = false;
                 isRotate = false;
                 directionX = 0;
                 directionZ = 0;
