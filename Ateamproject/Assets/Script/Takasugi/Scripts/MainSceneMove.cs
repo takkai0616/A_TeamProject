@@ -15,22 +15,9 @@ public class MainSceneMove: MonoBehaviour
     public bool isStart = false;
 
     private TimeCount timeCount;
-    private GameObject charactorObject;
-    private Transform charactorTrans;
-    private Player[] players;
-
-
 
     private void Start()
-    {
-        charactorObject = GameObject.Find("Charactors");
-        charactorTrans = charactorObject.GetComponent<Transform>();
-        players = new Player[charactorTrans.childCount];
-        for (int i = 0; i < charactorTrans.childCount; i++)
-        {
-            Transform child = charactorTrans.GetChild(i);
-            players[i] = child.GetComponent<Player>();
-        }
+    {        
         isStart = true;
         timeCount = GetComponent<TimeCount>();
     }

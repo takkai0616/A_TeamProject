@@ -25,19 +25,6 @@ public class CharactorRoot : MonoBehaviour
     public void OnDontDestroyScene()
     {
         DontDestroyOnLoad(gameObject);
-    }   
-
-    /// <summary>
-    /// キャラクターの位置と回転を初期化
-    /// </summary>
-    public void InitializationChildTrans()
-    {
-        for (int i = 0; i < childCount; i++)
-        { 
-            Transform trans = player[i].transform;
-            trans.position = Vector3.zero;
-            trans.rotation = Quaternion.identity;
-        }
     }
 
     public void ActivateSelectPlayer(int _num)
@@ -54,6 +41,9 @@ public class CharactorRoot : MonoBehaviour
     {
         for(int i = 0; i < childCount; i++)
         {
+            Transform trans = player[i].transform;
+            trans.position = Vector3.zero;
+            trans.rotation = Quaternion.identity;
             player[i].StartPosition();
         }
     }

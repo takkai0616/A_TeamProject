@@ -3,12 +3,24 @@ using UnityEngine.InputSystem;
 
 public class MultiPlay : MonoBehaviour
 {
-    [SerializeField] Player[] player;
+    private GameObject charactorObject;
+    private Player[] players;
+    private Transform charactorTrans;
+    private int playerCount;
 
-    int playerCount;
     void Start()
     {
         playerCount = Gamepad.all.Count;
+        charactorObject = GameObject.Find("Charactors");
+        CharactorRoot charactorRoot = new CharactorRoot();
+        charactorRoot.InitilizePlayerStartPosition();
+        charactorTrans = charactorObject.GetComponent<Transform>();
+        players = new Player[charactorTrans.childCount];
+        for (int i = 0; i < charactorTrans.childCount; i++)
+        {
+            Transform child = charactorTrans.GetChild(i);
+            players[i] = child.GetComponent<Player>();           
+        }
     }
 
     // Update is called once per frame
@@ -31,7 +43,7 @@ public class MultiPlay : MonoBehaviour
                 leftStickValue.y = 0;
             }
 
-            player[CommonData.useCharactorNum[i]].PlayerMove(leftStickValue.x, leftStickValue.y);
+            players[CommonData.useCharactorNum[i]].PlayerMove(leftStickValue.x, leftStickValue.y);
         }
     }
 }

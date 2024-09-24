@@ -49,8 +49,6 @@ public class SelectManager : MonoBehaviour
         {
             if (!pressStart[i]) return;
         }
-
-        charactorRoot.InitializationChildTrans();//キャラクターのTransformを初期化
         charactorRoot.OnDontDestroyScene();  //キャラクターをDontDestroyに上げる
         SceneManager.LoadScene("MainScene");//シーン遷移
     }

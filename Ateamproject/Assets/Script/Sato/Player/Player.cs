@@ -74,9 +74,7 @@ public class Player : MonoBehaviour
             isInterval = true;
         }
     }
-
-
-   
+    
     public void StartPosition()
     {
         transform.position = new Vector3(x, y, z);
