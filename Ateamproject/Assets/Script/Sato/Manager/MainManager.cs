@@ -1,40 +1,43 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainManager : MonoBehaviour
+namespace Sato
 {
-    [Header("キャラクターの初期位置を設定してください"),SerializeField]
-    Vector2Int[] initialPos;
-
-    GameObject charactorParent;//キャラクターの親
-    Transform[] charactorTrans;
-
-    void Start()
+    public class MainManager : MonoBehaviour
     {
-        charactorParent = GameObject.Find("Charactors");//キャラクターのオブジェクト取得
-        SceneManager.MoveGameObjectToScene(charactorParent, SceneManager.GetActiveScene());//DontDestroyからSceneへ移動
+        [Header("キャラクターの初期位置を設定してください"), SerializeField]
+        Vector2Int[] initialPos;
 
-        Transform parentTrans = charactorParent.transform;
+        GameObject charactorParent;//キャラクターの親
+        Transform[] charactorTrans;
 
-        for (int i = 0; i < parentTrans.childCount; ++i)
+        void Start()
         {
-            //ステージの大きさにあった位置に調整するまでコメントアウト
+            charactorParent = GameObject.Find("Charactors");//キャラクターのオブジェクト取得
+            SceneManager.MoveGameObjectToScene(charactorParent, SceneManager.GetActiveScene());//DontDestroyからSceneへ移動
 
-            //initialPos[0] = new Vector2Int(0, 0);
-            //initialPos[1] = new Vector2Int(stageManager.StageSizeX - 1, 0);
-            //initialPos[2] = new Vector2Int(0, stageManager.StageSizeY - 1);
-            //initialPos[3] = new Vector2Int(stageManager.StageSizeX - 1, stageManager.StageSizeY - 1);
+            Transform parentTrans = charactorParent.transform;
 
-            parentTrans.GetChild(i).transform.position =
-                new Vector3(initialPos[i].x,  
-                            parentTrans.GetChild(i).transform.position.y,
-                            initialPos[i].y);
+            for (int i = 0; i < parentTrans.childCount; ++i)
+            {
+                //ステージの大きさにあった位置に調整するまでコメントアウト
+
+                //initialPos[0] = new Vector2Int(0, 0);
+                //initialPos[1] = new Vector2Int(stageManager.StageSizeX - 1, 0);
+                //initialPos[2] = new Vector2Int(0, stageManager.StageSizeY - 1);
+                //initialPos[3] = new Vector2Int(stageManager.StageSizeX - 1, stageManager.StageSizeY - 1);
+
+                parentTrans.GetChild(i).transform.position =
+                    new Vector3(initialPos[i].x,
+                                parentTrans.GetChild(i).transform.position.y,
+                                initialPos[i].y);
+            }
+
         }
 
-    }
-    
-    void Update()
-    {
-        
+        void Update()
+        {
+
+        }
     }
 }

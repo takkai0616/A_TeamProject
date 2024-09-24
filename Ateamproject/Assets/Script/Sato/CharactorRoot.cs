@@ -44,5 +44,4 @@ public class CharactorRoot : MonoBehaviour
     {
         meshrenderer[_value].enabled = true;
     }
-
 }
