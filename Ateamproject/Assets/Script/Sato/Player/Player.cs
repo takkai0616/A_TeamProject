@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     public float sideLength;           // Cubeの辺の長さ
     [SerializeField]
-    public float IntervalSecond;
+    public float intervalSecond;
 
     //座標指定用
     [SerializeField]
@@ -29,11 +29,15 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float z;
 
-    public int Number { get; set; }
+    private int number;
+    public int Number { get => number; set => number = value; }
+
+    private bool isDicision;
+    public bool IsDecidion { get => isDicision; set => isDicision = value; } //プレイヤーが決まっているか
 
     private float time;
 
-    private bool IsInterval;
+    private bool isInterval;
     public bool isRotate;                  // Cubeが回転中かどうかを検出するフラグ
     private float directionX = 0;                   // 回転方向フラグ
     private float directionZ = 0;                   // 回転方向フラグ
@@ -52,9 +56,9 @@ public class Player : MonoBehaviour
     {
         rotationPeriod = 0.1f;
         sideLength = 1f;
-        IntervalSecond = 1f;
+        intervalSecond = 1f;
 
-        IsInterval = false;
+        isInterval = false;
         rotationTime = 0;
 
         // 重心の回転軌道半径を計算
@@ -65,11 +69,13 @@ public class Player : MonoBehaviour
     private void Update()
     {        
         time += Time.deltaTime;
-        if (IntervalSecond <= time)
+        if (intervalSecond <= time)
         {
-            IsInterval = true;
+            isInterval = true;
         }
     }
+
+
    
     public void StartPosition()
     {
@@ -103,7 +109,7 @@ public class Player : MonoBehaviour
             finish = true;
         }
         // キー入力がある　かつ　Cubeが回転中でない場合、Cubeを回転する。
-        if ((x != 0 || y != 0) && !isRotate && IsInterval)
+        if ((x != 0 || y != 0) && !isRotate && isInterval)
         {
             directionX = -x;                                                             // 回転方向セット (x,yどちらかは必ず0)
             directionZ = y;                                                             // 回転方向セット (x,yどちらかは必ず0)
@@ -138,7 +144,7 @@ public class Player : MonoBehaviour
             // 移動・回転終了時に各パラメータを初期化。isRotateフラグを下ろす。
             if (ratio == 1)
             {
-                IsInterval = false;
+                isInterval = false;
                 isRotate = false;
                 directionX = 0;
                 directionZ = 0;
