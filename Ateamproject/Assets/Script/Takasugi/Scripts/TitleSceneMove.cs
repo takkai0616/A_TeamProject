@@ -34,7 +34,7 @@ public class TitleSceneMove : MonoBehaviour
 
             if (isLoadable)
             {
-                SceneManager.LoadScene("MainScene");
+                SceneManager.LoadScene("SelectScene");
             }
 
             if (Input.GetKey(KeyCode.DownArrow))
