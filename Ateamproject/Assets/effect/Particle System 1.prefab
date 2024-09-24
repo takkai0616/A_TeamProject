@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6716663601031397626}
   - component: {fileID: 4431491899390466364}
   - component: {fileID: 2767286076663150112}
+  - component: {fileID: -7660043217477757256}
   m_Layer: 0
   m_Name: Particle System 1
   m_TagString: Untagged
@@ -4841,12 +4842,10 @@ ParticleSystemRenderer:
   m_ReflectionProbeUsage: 0
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9bc67a66b92d83a4c9b6395c671405d0, type: 2}
+  - {fileID: 2100000, guid: 95792792f0f41724c966e1c078071313, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4899,3 +4898,16 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &-7660043217477757256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8490665745817695762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b20c6dde30325ab489a7cd517ad2f77d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deadline: 1
