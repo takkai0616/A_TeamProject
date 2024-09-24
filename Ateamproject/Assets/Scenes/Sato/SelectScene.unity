@@ -477,7 +477,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88c7f73e81af19741ba73afe72ed0bf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoge: {fileID: 789946693}
+  charactorRoot: {fileID: 789946693}
   charObj:
   - {fileID: 5327217009841652379}
   - {fileID: 8751388567379801545}

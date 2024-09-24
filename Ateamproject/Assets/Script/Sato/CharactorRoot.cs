@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Hoge : MonoBehaviour
+public class CharactorRoot : MonoBehaviour
 {
     public void OnDontDestroyScene()
     {

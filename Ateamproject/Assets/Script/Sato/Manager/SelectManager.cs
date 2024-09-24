@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class SelectManager : MonoBehaviour
 {
-    [SerializeField] Hoge hoge;
+    [SerializeField] CharactorRoot charactorRoot;
     //キャラクターオブジェクト
     [SerializeField] PlayerNumber[] charObj;
 
@@ -40,7 +40,7 @@ public class SelectManager : MonoBehaviour
             if (!isDicision[i]) return;
         }
 
-        Transform parentTrans = hoge.transform;
+        Transform parentTrans = charactorRoot.transform;
         for(int i = 0; i < parentTrans.childCount; ++i)
         {
             Transform childTrans = parentTrans.GetChild(i);
@@ -49,7 +49,7 @@ public class SelectManager : MonoBehaviour
             grandChild.localRotation = Quaternion.identity;
         }
 
-        hoge.OnDontDestroyScene();
+        charactorRoot.OnDontDestroyScene();
         SceneManager.LoadScene("SatoScene");
     }
 }
