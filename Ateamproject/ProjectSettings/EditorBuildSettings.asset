@@ -6,13 +6,13 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Takasugi/Seens/Title Scene.unity
+    path: Assets/Scenes/Takasugi/Scenes/TitleScene.unity
     guid: 550adcbbd964128489fe2b4d705daafe
   - enabled: 1
-    path: Assets/Scenes/Takasugi/Seens/MainScene.unity
+    path: Assets/Scenes/Takasugi/Scenes/MainScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/Scenes/Takasugi/Seens/rezorutScene.unity
+    path: Assets/Scenes/Takasugi/Scenes/ResultScene.unity
     guid: fbecc0ceb00b23b4d9607d0d3458eb11
   - enabled: 1
     path: Assets/Scenes/Sato/SelectScene.unity

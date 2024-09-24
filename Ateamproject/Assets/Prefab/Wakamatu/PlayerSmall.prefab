@@ -183,6 +183,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8069114378280778885}
   - component: {fileID: 6532187128057195543}
+  - component: {fileID: 1331924418607719359}
   m_Layer: 0
   m_Name: CollisionChecker_Small
   m_TagString: Untagged
@@ -230,6 +231,19 @@ PositionConstraint:
   m_Sources:
   - sourceTransform: {fileID: 4525124765790780721}
     weight: 1
+--- !u!114 &1331924418607719359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4058153417945613044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c82f716e2ee5b247b12ced10e1b2170, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 4525124765790780721}
 --- !u!1 &4333959580638192739
 GameObject:
   m_ObjectHideFlags: 0
@@ -612,6 +626,9 @@ MonoBehaviour:
   rotationPeriod: 0.2
   sideLength: 1
   Interval: 0
+  x: 0
+  y: 0
+  z: 0
   isRotate: 0
 --- !u!114 &4851459374370178756
 MonoBehaviour:
