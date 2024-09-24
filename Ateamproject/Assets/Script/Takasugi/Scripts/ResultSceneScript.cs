@@ -3,25 +3,17 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 // タイトル画面の進行を制御します。
-public class rezorutScene: MonoBehaviour
+public class ResultSceneScript: MonoBehaviour
 {
     // 次のシーンを読み込み可能な場合はtrue、それ以外はfalse
-    bool isLoadable = false;
+    private  bool isLoadable = false;
 
-    bool Serect = true;
-
-    [SerializeField]
-    GameObject serect;
+    private bool isSelect = true;
 
     [SerializeField]
-    GameObject serect2;
+    private GameObject[] selectArrow;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-      
-    }
+   
 
     // ２秒待機後に次のシーンを読込み可能にします。
     IEnumerator OnStart()
@@ -30,20 +22,15 @@ public class rezorutScene: MonoBehaviour
         isLoadable = true;
     }
 
-    // 決定ボタン操作の際に呼び出され、次のシーンを読み込みます。
-    public void LoadNextScene()
-    {
-        
-    }
 
     private void Update()
     {
-        if (Serect == true)
+        if (isSelect)
         {   //ゲーム開始
 
             //選択の表示変えたい
-            serect.SetActive(true);
-            serect2.SetActive(false);
+            selectArrow[0].SetActive(true);
+            selectArrow[1].SetActive(false);
 
             if (isLoadable)
             {
@@ -51,23 +38,23 @@ public class rezorutScene: MonoBehaviour
             }
 
             if (Input.GetKey(KeyCode.RightArrow))
-            { Serect = false; }
+            { isSelect = false; }
         }
 
-        if (Serect == false)
+        if (!isSelect)
         {   //終了
 
             //選択の表示変えたい
-            serect.SetActive(false);
-            serect2.SetActive(true);
+            selectArrow[0].SetActive(false);
+            selectArrow[1].SetActive(true);
 
             if (isLoadable)
             {
-                SceneManager.LoadScene("Title Scene");
+                SceneManager.LoadScene("TitleScene");
             }
 
             if (Input.GetKey(KeyCode.LeftArrow))
-            { Serect = true; }
+            { isSelect = true; }
         }
 
 

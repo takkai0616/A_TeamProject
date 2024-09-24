@@ -3,33 +3,25 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class timecount : MonoBehaviour
+public class TimeCount : MonoBehaviour
 {
     [SerializeField]
- TextMeshProUGUI textMeshProUGUI;
+    private TextMeshProUGUI textMeshProUGUI;
 
     //•\Ž¦‚µ‚½‚¢ƒ^ƒCƒ€
     [SerializeField]
-    float time = 31;
-
-
-
-    void Start()
-    {
-        
-    }
+   private float time = 31;
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-     
-
         time -= 1 * Time.deltaTime;
 
-        int timeb = (int)time;
+        textMeshProUGUI.text = ((int)time).ToString();
+    }
 
-        string character = timeb.ToString();
-
-        textMeshProUGUI.text = character;
+    public float InGameTime()
+    {  
+        return time; 
     }
 }
