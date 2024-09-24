@@ -27,6 +27,8 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float z;
 
+    public int Number { get; set; }
+
     float time;
 
     bool inter = false;
