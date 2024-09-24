@@ -187,6 +187,7 @@ GameObject:
   - component: {fileID: 4414522725685202169}
   - component: {fileID: 6926979181861309464}
   - component: {fileID: 6662012442982599350}
+  - component: {fileID: 903821971148793945}
   m_Layer: 0
   m_Name: PlayerBig
   m_TagString: PlayerBig
@@ -225,7 +226,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5677309079258529825}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -327,12 +328,26 @@ MonoBehaviour:
   CollisionChecker_Top: {fileID: 0}
   rotationPeriod: 0.5
   sideLength: 2
-  IntervalSecond: 0
+  intervalSecond: 0
   x: 10.5
   y: 0.5
   z: -0.5
   isRotate: 0
   finish: 0
+--- !u!114 &903821971148793945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5677309079258529825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cd470b04e354134f8fb5a62529b0493, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 6662012442982599350}
+  footPrintPrefab: {fileID: 5042504317430541503, guid: 4e9fe73fb2ab59e4588e7ca371c825ab, type: 3}
 --- !u!1 &6199994646383256440
 GameObject:
   m_ObjectHideFlags: 0

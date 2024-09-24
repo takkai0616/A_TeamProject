@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class FootPrintManager : MonoBehaviour
 {
+    [SerializeField]
+    private float deadline = 1;
     private float time;@//ŽžŠÔ‘ª’è
     // Start is called before the first frame update
     void Start()
@@ -15,7 +17,7 @@ public class FootPrintManager : MonoBehaviour
     {
         //ˆê•bŒã”j‰ó
         time += Time.deltaTime;
-        if (time > 1)
+        if (time > deadline)
         {
             Destroy(gameObject);
         }
