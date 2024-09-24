@@ -32,6 +32,7 @@ public class Player : MonoBehaviour
 
     public int Number { get; set; }
 
+    private MainSceneScript main;
     private float time;
 
     private bool IsInterval;
@@ -60,11 +61,14 @@ public class Player : MonoBehaviour
 
         // dS‚Ì‰ñ“]‹O“¹”¼Œa‚ğŒvZ
         radius = sideLength * Mathf.Sqrt(2f) / 2f;
-        transform.position = new Vector3(x, y, z);
     }
 
     private void Update()
     {
+        if(main.isStart)
+        {
+            StartPosition();
+        }
         time += Time.deltaTime;
         if (IntervalSecond <= time)
         {
@@ -72,6 +76,10 @@ public class Player : MonoBehaviour
         }
     }
     // Update is called once per frame
+    private void StartPosition()
+    {
+        transform.position = new Vector3(x, y, z);
+    }
     public void PlayerMove(float x, float y)
     {
         //var leftStickValue = Gamepad.all[0].leftStick.ReadValue();
