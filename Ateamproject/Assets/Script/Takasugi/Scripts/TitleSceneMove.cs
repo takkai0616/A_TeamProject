@@ -6,6 +6,9 @@ using UnityEngine.InputSystem;
 // タイトル画面の進行を制御します。
 public class TitleSceneMove : MonoBehaviour
 {
+    [SerializeField]
+    private Animator animator;
+
     // 次のシーンを読み込み可能な場合はtrue、それ以外はfalse
     private bool isLoadable = false;
 
@@ -63,6 +66,7 @@ public class TitleSceneMove : MonoBehaviour
         if (Input.GetKey(KeyCode.Return))
         {
             StartCoroutine(OnStart());
+            animator.SetTrigger("Push");
         }
         
         
