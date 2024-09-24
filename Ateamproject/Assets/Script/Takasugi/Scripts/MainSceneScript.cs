@@ -12,10 +12,13 @@ public class MainSceneScript: MonoBehaviour
 
     private bool isTimeUp = false;
 
+    public bool isStart = false;
+
     private TimeCount timeCount;
 
     private void Start()
     {
+        isStart = true;
         timeCount = GetComponent<TimeCount>();
     }
 

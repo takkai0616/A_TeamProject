@@ -618,18 +618,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d3cc58e21c7aaa4dafbed3e0a91338d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wallChecker_Right: {fileID: 734173757953753819}
-  wallChecker_Left: {fileID: 4695728612588518455}
-  wallChecker_Up: {fileID: 7235946360472536701}
-  wallChecker_Down: {fileID: 6736270238174542239}
-  wallChecker_Top: {fileID: 4560141471067864378}
+  CollisionChecker_Right: {fileID: 734173757953753819}
+  CollisionChecker_Left: {fileID: 4695728612588518455}
+  CollisionChecker_Up: {fileID: 7235946360472536701}
+  CollisionChecker_Down: {fileID: 6736270238174542239}
+  CollisionChecker_Top: {fileID: 4560141471067864378}
   rotationPeriod: 0.2
   sideLength: 1
-  Interval: 0
+  IntervalSecond: 0
   x: 0
   y: 0
   z: 0
   isRotate: 0
+  finish: 0
 --- !u!114 &4851459374370178756
 MonoBehaviour:
   m_ObjectHideFlags: 0
