@@ -8,11 +8,13 @@ public class SelectManager : MonoBehaviour
     //キャラクターオブジェクト
     [SerializeField] PlayerNumber[] charObj;
 
-    bool[] isDicision;
+    bool[] isDicision;//決定したかどうか
+    bool pressStart;//スタートボタンを押したか
 
     void Start()
     {
         isDicision = new bool[charObj.Length];
+        pressStart = false;
 
         for (int i = 0; i < isDicision.Length; ++i)
         {
@@ -23,6 +25,8 @@ public class SelectManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+
         for (int i = 0; i < Gamepad.all.Count; i++)
         {
             if (!Gamepad.all[i].aButton.wasPressedThisFrame) continue;//Aボタンが押されていない
@@ -40,6 +44,16 @@ public class SelectManager : MonoBehaviour
             if (!isDicision[i]) return;
         }
 
+        //始めるボタンを押したか判定
+        for (int i = 0; i < Gamepad.all.Count; i++)
+        {
+            if (!Gamepad.all[i].bButton.wasPressedThisFrame) continue;
+            pressStart = true;
+        }
+
+        if (!pressStart) return;  //スタートフラグが立っているか
+
+        //キャラクターの傾きと位置を調整
         Transform parentTrans = charactorRoot.transform;
         for(int i = 0; i < parentTrans.childCount; ++i)
         {
@@ -49,7 +63,7 @@ public class SelectManager : MonoBehaviour
             grandChild.localRotation = Quaternion.identity;
         }
 
-        charactorRoot.OnDontDestroyScene();
-        SceneManager.LoadScene("SatoScene");
+        charactorRoot.OnDontDestroyScene();  //キャラクターをDontDestroyに上げる
+        SceneManager.LoadScene("MainScene");//シーン遷移
     }
 }
