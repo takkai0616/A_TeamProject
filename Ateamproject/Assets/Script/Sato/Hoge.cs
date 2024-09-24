@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class Hoge : MonoBehaviour
 {
-    void Start()
-    {       
+    public void OnDontDestroyScene()
+    {
         DontDestroyOnLoad(gameObject);
     }
 }

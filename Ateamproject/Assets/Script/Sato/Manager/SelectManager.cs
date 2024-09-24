@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class SelectManager : MonoBehaviour
 {
+    [SerializeField] Hoge hoge;
     //キャラクターオブジェクト
     [SerializeField] PlayerNumber[] charObj;
 
@@ -22,14 +23,6 @@ public class SelectManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            for (int i = 0; i < charObj.Length; i++)
-            {
-                Debug.Log(i + "は" + CommonData.useCharactorNum[i]);
-            }
-        }
-
         for (int i = 0; i < Gamepad.all.Count; i++)
         {
             if (!Gamepad.all[i].aButton.wasPressedThisFrame) continue;//Aボタンが押されていない
@@ -47,6 +40,16 @@ public class SelectManager : MonoBehaviour
             if (!isDicision[i]) return;
         }
 
+        Transform parentTrans = hoge.transform;
+        for(int i = 0; i < parentTrans.childCount; ++i)
+        {
+            Transform childTrans = parentTrans.GetChild(i);
+            Transform grandChild = childTrans.GetChild(0);
+            grandChild.localPosition = Vector3.zero;
+            grandChild.localRotation = Quaternion.identity;
+        }
+
+        hoge.OnDontDestroyScene();
         SceneManager.LoadScene("SatoScene");
     }
 }
