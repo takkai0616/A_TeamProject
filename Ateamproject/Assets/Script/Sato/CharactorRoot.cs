@@ -3,17 +3,25 @@ using UnityEngine;
 public class CharactorRoot : MonoBehaviour
 {
     [SerializeField] private Player[] player;
-    [SerializeField] private MeshRenderer[] meshrenderer;  
+    [SerializeField] private MeshRenderer[] meshrenderer;    
+
     private int childCount;
     public int ChildCount { get => childCount; }    
-    private int numberingCharaCount;//番付をされたキャラの数をカウント
-    
+
     public void OnStart()
     {
         childCount = transform.childCount;
-        numberingCharaCount = 0;       
-    } 
 
+        //プレイヤーの表示を削除
+        for (int i = 0; i < childCount; i++)
+        {
+            meshrenderer[i].enabled = false;
+        }
+    }
+
+    /// <summary>
+    /// DontDestroyに上げる
+    /// </summary>
     public void OnDontDestroyScene()
     {
         DontDestroyOnLoad(gameObject);
@@ -32,16 +40,36 @@ public class CharactorRoot : MonoBehaviour
         }
     }
 
-    public int GetCharactorNum()
+    public void ActivateSelectPlayer(int _num)
     {
-        int num = numberingCharaCount;
-        ActivateSelectPlayer(num);
-        numberingCharaCount++;
-        return num;
+        meshrenderer[_num].enabled = true;
     }
 
-    public void ActivateSelectPlayer(int _value)
+    public void InActivateSelectPlayer(int _num)
     {
-        meshrenderer[_value].enabled = true;
+        meshrenderer[_num].enabled = false;
+    }
+
+    public void InitilizePlayerStartPosition()
+    {
+        for(int i = 0; i < childCount; i++)
+        {
+            player[i].StartPosition();
+        }
+    }
+
+    /// <summary>
+    /// 番号のプレイヤーが選択されているか
+    /// </summary>
+    /// <param name="_num"></param>
+    /// <returns></returns>
+    public bool GetIsDecision(int _num)
+    {
+        return player[_num].IsDecidion;
+    }
+
+    public void SetIsDecidion(int _num, bool _value)
+    {
+        player[_num].IsDecidion = _value;
     }
 }
