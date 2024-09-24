@@ -31,7 +31,7 @@ public class MultiPlay : MonoBehaviour
                 leftStickValue.y = 0;
             }
 
-            player[i].PlayerMove(leftStickValue.x, leftStickValue.y);
+            player[CommonData.useCharactorNum[i]].PlayerMove(leftStickValue.x, leftStickValue.y);
         }
     }
 }
