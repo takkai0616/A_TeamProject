@@ -539,7 +539,7 @@ MonoBehaviour:
   CollisionChecker_Top: {fileID: 0}
   rotationPeriod: 0.5
   sideLength: 2
-  intervalSecond: 0
+  intervalSecond: 0.5
   x: 10.5
   y: 0.5
   z: -0.5
