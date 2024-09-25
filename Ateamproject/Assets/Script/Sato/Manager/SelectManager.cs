@@ -43,6 +43,7 @@ public class SelectManager : MonoBehaviour
         for (int i = 0; i < Gamepad.all.Count; i++)
         {
             if (!Gamepad.all[i].startButton.wasPressedThisFrame) continue;
+            if(!isDecision[i]) continue;
             pressStart[i] = true;
             oKImage[CommonData.useCharactorNum[i]].sprite = oKSprite[1];
         }
@@ -111,8 +112,8 @@ public class SelectManager : MonoBehaviour
             preDecisionInfoImage[CommonData.useCharactorNum[i]].enabled = true;
             charactorRoot.InActivateSelectPlayer(CommonData.useCharactorNum[i]);
             charactorRoot.SetIsDecidion(CommonData.useCharactorNum[i], false);
-            CommonData.useCharactorNum[i] = -1;
-            oKImage[i].sprite = oKSprite[0];
+            oKImage[CommonData.useCharactorNum[i]].sprite = oKSprite[0];
+            CommonData.useCharactorNum[i] = -1;            
             isDecision[i] = false;
         }
     }
