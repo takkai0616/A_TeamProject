@@ -113,7 +113,8 @@ public class SelectManager : MonoBehaviour
             charactorRoot.InActivateSelectPlayer(CommonData.useCharactorNum[i]);
             charactorRoot.SetIsDecidion(CommonData.useCharactorNum[i], false);
             oKImage[CommonData.useCharactorNum[i]].sprite = oKSprite[0];
-            CommonData.useCharactorNum[i] = -1;            
+            CommonData.useCharactorNum[i] = -1;
+            pressStart[i] = false;
             isDecision[i] = false;
         }
     }

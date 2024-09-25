@@ -1,4 +1,3 @@
-using UnityEditor.Animations;
 using UnityEngine;
 
 public class CharactorRoot : MonoBehaviour
@@ -43,10 +42,25 @@ public class CharactorRoot : MonoBehaviour
         for(int i = 0; i < childCount; i++)
         {
             Transform trans = player[i].transform;
+            trans.localRotation = Quaternion.identity;
             Transform parentTrans = trans.parent;
             parentTrans.position = Vector3.zero;
             parentTrans.rotation = Quaternion.identity;
             player[i].StartPosition();
+        }
+    }
+
+    /// <summary>
+    /// リザルトシーンに移動したときにプレイヤーの位置を変更
+    /// </summary>
+    public void SetResultPosition()
+    {        
+        Vector3 outOfScreen = new Vector3(0.0f, 50.0f, 0.0f);
+        for (int i = 0; i < childCount; i++)
+        {
+            player[i].Start = false;
+            Transform trans = player[i].transform;
+            trans.position = outOfScreen;
         }
     }
 

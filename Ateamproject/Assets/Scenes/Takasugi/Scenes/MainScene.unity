@@ -4377,7 +4377,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7aca21729f4461748888e247fbeb4979, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isStart: 0
+  multiPlay: {fileID: 0}
 --- !u!4 &961814455
 Transform:
   m_ObjectHideFlags: 0
@@ -4407,11 +4407,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f43e0c2cb5e58cb449a84de9b640ec0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!114 &961814457
 MonoBehaviour:
   m_ObjectHideFlags: 0

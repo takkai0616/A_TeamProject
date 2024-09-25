@@ -1,5 +1,7 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 
 public class Player : MonoBehaviour
 {
@@ -38,22 +40,37 @@ public class Player : MonoBehaviour
     public bool isRotate;                  // Cubeが回転中かどうかを検出するフラグ
     private float directionX = 0;                   // 回転方向フラグ
     private float directionZ = 0;                   // 回転方向フラグ
-
     private Vector3 startPos;                       // 回転前のCubeの位置
     private float rotationTime;                 // 回転中の時間経過
     private float radius;                           // 重心の軌道半径
     private Quaternion fromRotation;                // 回転前のCubeのクォータニオン
     private Quaternion toRotation;                  // 回転後のCubeのクォータニオン
+    private static bool finish;
 
-
-    public bool finish = false;
+    private bool start;
+    public bool Start { set => start = value; }
+    public bool Finish { get => finish;}
 
     // Use this for initialization
-    void Start()
+    public void OnStart()
     {
-        
-
+        finish = false;
         isInterval = false;
+        start = true;
+
+        CollisionChecker_Up.IsCasted = false;
+        CollisionChecker_Down.IsCasted = false;
+        CollisionChecker_Left.IsCasted = false;
+        CollisionChecker_Right.IsCasted = false;
+        CollisionChecker_Top.IsCasted = false;
+
+        isRotate = false;
+        directionX = 0;
+        directionZ = 0;
+        startPos = new Vector3(0, 0, 0);
+        rotationTime = 0;
+        fromRotation = Quaternion.identity;
+        toRotation = Quaternion.identity;
 
         // 重心の回転軌道半径を計算
         radius = sideLength * Mathf.Sqrt(2f) / 2f;
@@ -76,6 +93,8 @@ public class Player : MonoBehaviour
 
     public void PlayerMove(float x, float y)
     {
+        if (!start) return;
+
         //var leftStickValue = Gamepad.all[0].leftStick.ReadValue();
 
         if (CollisionChecker_Up.IsCasted && y > 0)
@@ -117,6 +136,7 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (!start) return;
 
         if (isRotate)
         {
@@ -143,12 +163,6 @@ public class Player : MonoBehaviour
                 rotationTime = 0;
                 time = 0;
             }
-        }
-
-        //シーン移動
-        if (finish == true)
-        {
-            SceneManager.LoadScene("ResultScene");
-        }
+        }      
     }
 }

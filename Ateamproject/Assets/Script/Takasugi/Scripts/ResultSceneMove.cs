@@ -8,27 +8,22 @@ public class ResultSceneMove: MonoBehaviour
 
     [SerializeField]
     private Animator animator;
-    // 次のシーンを読み込み可能な場合はtrue、それ以外はfalse
-    private  bool isLoadable = false;
-
-    private bool isSelect = true;
-
-    private bool isPush = false;
-
     [SerializeField]
     private GameObject[] selectArrow;
+    // 次のシーンを読み込み可能な場合はtrue、それ以外はfalse
+    private  bool isLoadable = false;
+    private bool isSelect = true;
+    private bool isPush = false;
 
-   
+    private GameObject charObj;
+    private CharactorRoot charactorRoot; 
 
-    // ２秒待機後に次のシーンを読込み可能にします。
-    IEnumerator OnStart()
-    {
-        yield return new WaitForSeconds(2);
-        isLoadable = true;
-    }
     private void Start()
     {
         isPush = false;
+        charObj = GameObject.Find("Charactors");
+        charactorRoot = charObj.GetComponent<CharactorRoot>();
+        charactorRoot.SetResultPosition();
     }
 
     private void Update()
@@ -45,8 +40,11 @@ public class ResultSceneMove: MonoBehaviour
             {
                 SceneManager.LoadScene("MainScene");
             }
-                if (leftStickValue.x > 0 && !isPush)
-                { isSelect = false; }
+            
+            if (leftStickValue.x > 0 && !isPush)
+            {
+                isSelect = false; 
+            }
         }
 
         if (!isSelect)
@@ -60,11 +58,11 @@ public class ResultSceneMove: MonoBehaviour
             {
                 SceneManager.LoadScene("TitleScene");
             }
-                if (leftStickValue.x < 0 && !isPush)
-                { isSelect = true; }
-
+            if (leftStickValue.x < 0 && !isPush)
+            { 
+                isSelect = true; 
+            }
         }
-
 
         //決定
         if (Gamepad.all[0].bButton.wasPressedThisFrame)
@@ -73,7 +71,12 @@ public class ResultSceneMove: MonoBehaviour
             animator.SetTrigger("PushResult");
             isPush = true;
         }
+    }
 
-
+    // ２秒待機後に次のシーンを読込み可能にします。
+    IEnumerator OnStart()
+    {
+        yield return new WaitForSeconds(2);
+        isLoadable = true;
     }
 }
