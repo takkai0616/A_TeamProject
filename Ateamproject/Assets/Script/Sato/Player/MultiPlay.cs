@@ -7,6 +7,7 @@ public class MultiPlay : MonoBehaviour
     private Player[] players;
     private Transform charactorTrans;
     private int playerCount;
+    public bool IsFinish { get; private set; }
 
     void Start()
     {
@@ -20,13 +21,16 @@ public class MultiPlay : MonoBehaviour
         {
             Transform child = charactorTrans.GetChild(i);
             Transform grandChild = child.GetChild(0);
-            players[i] = grandChild.GetComponent<Player>();           
+            players[i] = grandChild.GetComponent<Player>();
+            players[i].OnStart();
         }
     }
 
     // Update is called once per frame
     void Update()
     {
+        IsFinish = players[0].Finish;
+
         for (int i = 0; i < playerCount; ++i)
         {
             var leftStickValue = Gamepad.all[i].leftStick.ReadValue();
