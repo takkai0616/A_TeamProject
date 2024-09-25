@@ -14,8 +14,14 @@ public class SelectManager : MonoBehaviour
     private bool[] isDecision;//決定したかどうか
     private bool[] pressStart;//スタートボタンを押したか
 
+    private GameObject mainSelectBGMObj;
+    private BGMMainSelect bgmMainSelect;
+
+
     private void Start()
     {
+        mainSelectBGMObj = GameObject.Find("BGMPlayer");
+        bgmMainSelect = mainSelectBGMObj.GetComponent<BGMMainSelect>();
         charactorRoot.OnStart();
         isDecision = new bool[charactorRoot.ChildCount];
         pressStart = new bool[charactorRoot.ChildCount];
@@ -55,6 +61,7 @@ public class SelectManager : MonoBehaviour
             if (!pressStart[i]) return;
         }
         charactorRoot.OnDontDestroyScene();  //キャラクターをDontDestroyに上げる
+        bgmMainSelect.OnActiveScene();
         SceneManager.LoadScene("MainScene");//シーン遷移
     }
 
