@@ -97,11 +97,13 @@ public class SelectManager : MonoBehaviour
             //animationを再生
             if (isDecision[i] && (CommonData.useCharactorNum[i] == _num))//コントローラーが決定済みかつ登録されたボタンの番号と入力されたボタンが一致していたら
             {
+                //charactorRoot.Animation(_num);
                 return;
             }
 
             if (!JudgeAvailability(_num, i)) return;//コントローラーとキャラクターが未決定か判定
 
+            //charactorRoot.SetActiveAnimation(_num, true);
             SEManager.instance.DecisionSEPlaying(audioSource);
             preDecisionInfoImage[_num].enabled = false;//ボタンを押してくださいを表示するImageを消す
             charactorRoot.ActivateSelectPlayer(_num);//キャラクターのMeshRendererをアクティブにする

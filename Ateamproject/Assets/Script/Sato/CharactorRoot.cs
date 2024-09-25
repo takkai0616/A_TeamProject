@@ -33,6 +33,20 @@ public class CharactorRoot : MonoBehaviour
         SceneManager.MoveGameObjectToScene(gameObject, SceneManager.GetActiveScene());
     }
 
+    public void Animation(int _num)
+    {
+        Transform _parentTrans = player[_num].transform.parent;
+        PlayerAnimation _playerAnimation = _parentTrans.GetComponent<PlayerAnimation>();
+        _playerAnimation.PlayMotion();
+    }
+
+    public void SetActiveAnimation(int _num, bool _active)
+    {
+        Transform _parentTrans = player[_num].transform.parent;
+        PlayerAnimation _playerAnimation = _parentTrans.GetComponent<PlayerAnimation>();
+        _playerAnimation.enabled = _active;
+    }
+
     public void ActivateSelectPlayer(int _num)
     {
         meshrenderer[_num].enabled = true;
