@@ -18,11 +18,12 @@ public class SelectManager : MonoBehaviour
         charactorRoot.OnStart();
         isDecision = new bool[charactorRoot.ChildCount];
         pressStart = new bool[charactorRoot.ChildCount];
-
+        
         for (int i = 0; i < isDecision.Length; ++i)
         {
             isDecision[i] = false;
             pressStart[i] = false;
+            oKImage[i].sprite = oKSprite[0];
         }
     }
 
@@ -32,17 +33,18 @@ public class SelectManager : MonoBehaviour
         PressedSelectButton();
         CancelCharactor();
 
-        //全てのコントローラーが決定し終わったら
-        for (int i = 0; i < Gamepad.all.Count; i++)
-        {
-            if (!isDecision[i]) return;
-        }
+        ////全てのコントローラーが決定し終わったら
+        //for (int i = 0; i < Gamepad.all.Count; i++)
+        //{
+        //    if (!isDecision[i]) return;
+        //}
 
         //始めるボタンを押したか判定
         for (int i = 0; i < Gamepad.all.Count; i++)
         {
             if (!Gamepad.all[i].startButton.wasPressedThisFrame) continue;
             pressStart[i] = true;
+            oKImage[CommonData.useCharactorNum[i]].sprite = oKSprite[1];
         }
 
         for (int i = 0; i < Gamepad.all.Count; i++)
@@ -110,6 +112,7 @@ public class SelectManager : MonoBehaviour
             charactorRoot.InActivateSelectPlayer(CommonData.useCharactorNum[i]);
             charactorRoot.SetIsDecidion(CommonData.useCharactorNum[i], false);
             CommonData.useCharactorNum[i] = -1;
+            oKImage[i].sprite = oKSprite[0];
             isDecision[i] = false;
         }
     }
