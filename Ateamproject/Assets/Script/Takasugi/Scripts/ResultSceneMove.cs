@@ -10,6 +10,8 @@ public class ResultSceneMove: MonoBehaviour
     private Animator animator;
     [SerializeField]
     private GameObject[] selectArrow;
+    [SerializeField]
+    private AudioSource audioSource;
     // 次のシーンを読み込み可能な場合はtrue、それ以外はfalse
     private  bool isLoadable = false;
     private bool isSelect = true;
@@ -44,7 +46,8 @@ public class ResultSceneMove: MonoBehaviour
             
             if (leftStickValue.x > 0 && !isPush)
             {
-                isSelect = false; 
+                isSelect = false;
+                SEManager.instance.CursorSEPlaying(audioSource);
             }
         }
 
@@ -62,7 +65,8 @@ public class ResultSceneMove: MonoBehaviour
             }
             if (leftStickValue.x < 0 && !isPush)
             { 
-                isSelect = true; 
+                isSelect = true;
+                SEManager.instance.CursorSEPlaying(audioSource);
             }
         }
 
@@ -72,6 +76,7 @@ public class ResultSceneMove: MonoBehaviour
             StartCoroutine(OnStart());
             animator.SetTrigger("PushResult");
             isPush = true;
+            SEManager.instance.DecisionSEPlaying(audioSource);
         }
     }
 

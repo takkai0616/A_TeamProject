@@ -9,6 +9,8 @@ public class TitleSceneMove : MonoBehaviour
     [SerializeField]
     private Animator animator;
 
+    [SerializeField]
+    private AudioSource audioSource;
     // 次のシーンを読み込み可能な場合はtrue、それ以外はfalse
     private bool isLoadable = false;
 
@@ -47,7 +49,11 @@ public class TitleSceneMove : MonoBehaviour
                 SceneManager.LoadScene("SelectScene");
             }
                 if (leftStickValue.y < 0&&!isPush)
-                { isSelect = false; }
+                { 
+                
+                isSelect = false;
+                SEManager.instance.CursorSEPlaying(audioSource);
+            }
 
         }
 
@@ -65,7 +71,10 @@ public class TitleSceneMove : MonoBehaviour
             else
             {
                 if (leftStickValue.y > 0 && !isPush)
-                { isSelect = true; }
+                { 
+                    isSelect = true;
+                    SEManager.instance.CursorSEPlaying(audioSource);
+                }
             }
         }
 
@@ -77,6 +86,7 @@ public class TitleSceneMove : MonoBehaviour
             StartCoroutine(OnStart());
             animator.SetTrigger("Push");
             isPush = true;
+              SEManager.instance.DecisionSEPlaying(audioSource);
         }
         
         
