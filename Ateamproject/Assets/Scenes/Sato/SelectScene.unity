@@ -2178,7 +2178,9 @@ MonoBehaviour:
   - {fileID: 975682068}
   - {fileID: 152240791}
   - {fileID: 640138378}
-  oKSprite: []
+  oKSprite:
+  - {fileID: 21300000, guid: 71cf87e4949ac9e418755e8ecab1c432, type: 3}
+  - {fileID: 21300000, guid: 815a65587913e7e429893a959cfb843c, type: 3}
 --- !u!23 &1549654572 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 1732708759489639999, guid: 0c4383d40deaa144d9371e08bb1cd903, type: 3}
@@ -2736,8 +2738,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 100, y: 200}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 80, y: 200}
+  m_SizeDelta: {x: 192, y: 96}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1877396455
 MonoBehaviour:
