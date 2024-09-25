@@ -13,6 +13,8 @@ public class ResultSceneMove: MonoBehaviour
 
     private bool isSelect = true;
 
+    private bool isPush = false;
+
     [SerializeField]
     private GameObject[] selectArrow;
 
@@ -24,10 +26,14 @@ public class ResultSceneMove: MonoBehaviour
         yield return new WaitForSeconds(2);
         isLoadable = true;
     }
-
+    private void Start()
+    {
+        isPush = false;
+    }
 
     private void Update()
     {
+        var leftStickValue = Gamepad.all[0].leftStick.ReadValue();//スティックを倒した度合い
         if (isSelect)
         {   //ゲーム開始
 
@@ -39,9 +45,8 @@ public class ResultSceneMove: MonoBehaviour
             {
                 SceneManager.LoadScene("MainScene");
             }
-
-            if (Input.GetKey(KeyCode.RightArrow))
-            { isSelect = false; }
+                if (leftStickValue.x > 0 && !isPush)
+                { isSelect = false; }
         }
 
         if (!isSelect)
@@ -55,18 +60,18 @@ public class ResultSceneMove: MonoBehaviour
             {
                 SceneManager.LoadScene("TitleScene");
             }
+                if (leftStickValue.x < 0 && !isPush)
+                { isSelect = true; }
 
-            if (Input.GetKey(KeyCode.LeftArrow))
-            { isSelect = true; }
         }
 
 
         //決定
-        if (Input.GetKey(KeyCode.Return))
+        if (Gamepad.all[0].bButton.wasPressedThisFrame)
         {
             StartCoroutine(OnStart());
             animator.SetTrigger("PushResult");
-          
+            isPush = true;
         }
 
 
