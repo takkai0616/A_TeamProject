@@ -85,7 +85,6 @@ public class SelectManager : MonoBehaviour
             //animationを再生
             if (isDecision[i] && (CommonData.useCharactorNum[i] == _num))//コントローラーが決定済みかつ登録されたボタンの番号と入力されたボタンが一致していたら
             {
-
                 return;
             }
 

@@ -1,3 +1,4 @@
+using UnityEditor.Animations;
 using UnityEngine;
 
 public class CharactorRoot : MonoBehaviour
@@ -42,8 +43,9 @@ public class CharactorRoot : MonoBehaviour
         for(int i = 0; i < childCount; i++)
         {
             Transform trans = player[i].transform;
-            trans.position = Vector3.zero;
-            trans.rotation = Quaternion.identity;
+            Transform parentTrans = trans.parent;
+            parentTrans.position = Vector3.zero;
+            parentTrans.rotation = Quaternion.identity;
             player[i].StartPosition();
         }
     }
