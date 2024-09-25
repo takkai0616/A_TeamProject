@@ -1,10 +1,13 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.InputSystem;
 // タイトル画面の進行を制御します。
 public class ResultSceneMove: MonoBehaviour
 {
+
+    [SerializeField]
+    private Animator animator;
     // 次のシーンを読み込み可能な場合はtrue、それ以外はfalse
     private  bool isLoadable = false;
 
@@ -62,6 +65,8 @@ public class ResultSceneMove: MonoBehaviour
         if (Input.GetKey(KeyCode.Return))
         {
             StartCoroutine(OnStart());
+            animator.SetTrigger("PushResult");
+          
         }
 
 
