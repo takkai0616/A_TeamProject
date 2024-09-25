@@ -44,9 +44,14 @@ public class MainSceneMove: MonoBehaviour
             isTimeUp = true;
         }
 
-        if (isLoadable|| isTimeUp || multiPlay.IsFinish)
+        if (isLoadable|| isTimeUp)
         {
             SceneManager.LoadScene("ResultScene");
+        }
+
+        if (multiPlay.IsFinish)
+        {
+            SceneManager.LoadScene("Result3PScene");
         }
     }
 }

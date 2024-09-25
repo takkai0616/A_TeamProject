@@ -37,8 +37,7 @@ public class ResultSceneMove: MonoBehaviour
             selectArrow[1].SetActive(false);
 
             if (isLoadable)
-            {
-                charactorRoot.OnActiceScene();
+            {                
                 SceneManager.LoadScene("MainScene");
             }
             
@@ -57,6 +56,7 @@ public class ResultSceneMove: MonoBehaviour
 
             if (isLoadable)
             {
+                charactorRoot.OnActiceScene();
                 SceneManager.LoadScene("TitleScene");
             }
             if (leftStickValue.x < 0 && !isPush)
