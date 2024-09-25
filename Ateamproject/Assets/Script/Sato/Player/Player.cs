@@ -29,9 +29,6 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float z;
 
-    private int number;
-    public int Number { get => number; set => number = value; }
-
     private bool isDicision;
     public bool IsDecidion { get => isDicision; set => isDicision = value; } //ƒvƒŒƒCƒ„[‚ªŒˆ‚Ü‚Á‚Ä‚¢‚é‚©
 
