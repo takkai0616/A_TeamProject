@@ -1,5 +1,72 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1151007918178095708
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8452156693177304273}
+  - component: {fileID: 744178889108578716}
+  - component: {fileID: 300003283134428877}
+  m_Layer: 0
+  m_Name: FootPrint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8452156693177304273
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1151007918178095708}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.5, y: 0, z: 2.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8981863966623150943}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &744178889108578716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1151007918178095708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cd470b04e354134f8fb5a62529b0493, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 6662012442982599350}
+  footPrintPrefab: {fileID: 6663945116336964374, guid: f9beab061eac4294aae2af1f130e5a52, type: 3}
+--- !u!1818360608 &300003283134428877
+PositionConstraint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1151007918178095708}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Weight: 1
+  m_TranslationAtRest: {x: 0.5, y: 0, z: 2.5}
+  m_TranslationOffset: {x: 0.5, y: 0, z: 2.5}
+  m_AffectTranslationX: 1
+  m_AffectTranslationY: 1
+  m_AffectTranslationZ: 1
+  m_Active: 1
+  m_IsLocked: 0
+  m_Sources:
+  - sourceTransform: {fileID: 8562804442562628107}
+    weight: 1
 --- !u!1 &3268931849058136016
 GameObject:
   m_ObjectHideFlags: 0
@@ -31,6 +98,7 @@ Transform:
   m_Children:
   - {fileID: 8562804442562628107}
   - {fileID: 4114263941729210542}
+  - {fileID: 8452156693177304273}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3673059550468836946
@@ -187,7 +255,6 @@ GameObject:
   - component: {fileID: 4414522725685202169}
   - component: {fileID: 6926979181861309464}
   - component: {fileID: 6662012442982599350}
-  - component: {fileID: 903821971148793945}
   m_Layer: 0
   m_Name: PlayerBig
   m_TagString: PlayerBig
@@ -334,20 +401,6 @@ MonoBehaviour:
   z: -0.5
   isRotate: 0
   finish: 0
---- !u!114 &903821971148793945
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5677309079258529825}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1cd470b04e354134f8fb5a62529b0493, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 6662012442982599350}
-  footPrintPrefab: {fileID: 5042504317430541503, guid: 4e9fe73fb2ab59e4588e7ca371c825ab, type: 3}
 --- !u!1 &6199994646383256440
 GameObject:
   m_ObjectHideFlags: 0

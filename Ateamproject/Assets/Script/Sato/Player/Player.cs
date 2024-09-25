@@ -148,7 +148,7 @@ public class Player : MonoBehaviour
         //ƒV[ƒ“ˆÚ“®
         if (finish == true)
         {
-            SceneManager.LoadScene("rezorutScene");
+            SceneManager.LoadScene("ResultScene");
         }
     }
 }
