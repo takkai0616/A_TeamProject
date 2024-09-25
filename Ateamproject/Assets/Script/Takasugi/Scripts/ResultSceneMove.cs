@@ -38,6 +38,7 @@ public class ResultSceneMove: MonoBehaviour
 
             if (isLoadable)
             {
+                charactorRoot.OnActiceScene();
                 SceneManager.LoadScene("MainScene");
             }
             

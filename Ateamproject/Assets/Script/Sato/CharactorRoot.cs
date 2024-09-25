@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CharactorRoot : MonoBehaviour
 {
@@ -6,7 +7,7 @@ public class CharactorRoot : MonoBehaviour
     [SerializeField] private MeshRenderer[] meshrenderer;
 
     private int childCount;
-    public int ChildCount { get => childCount; }    
+    public int ChildCount { get => childCount; }
 
     public void OnStart()
     {
@@ -25,6 +26,11 @@ public class CharactorRoot : MonoBehaviour
     public void OnDontDestroyScene()
     {
         DontDestroyOnLoad(gameObject);
+    }
+
+    public void OnActiceScene()
+    {
+        SceneManager.MoveGameObjectToScene(gameObject, SceneManager.GetActiveScene());
     }
 
     public void ActivateSelectPlayer(int _num)
