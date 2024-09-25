@@ -589,6 +589,9 @@ MonoBehaviour:
   smallBoxRollSE2: {fileID: 8300000, guid: 543621fc3a4127a46b9848d5c67497e6, type: 3}
   finishSE: {fileID: 8300000, guid: 647231dab1af81f4faaaa06ecd862f6b, type: 3}
   resultButtonSE: {fileID: 8300000, guid: 01adfe7905b223545b58b49950afcbf7, type: 3}
+  cursorSE: {fileID: 0}
+  cancelSE: {fileID: 0}
+  decisionSE: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
