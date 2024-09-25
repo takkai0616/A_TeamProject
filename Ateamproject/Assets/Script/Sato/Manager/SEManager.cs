@@ -1,14 +1,14 @@
 using UnityEngine;
 
-public class SoundManager : MonoBehaviour
+public class SEManager : MonoBehaviour
 {
     [Header("‘å” ‰ñ“]"), SerializeField] AudioClip bigBoxRollSE;
     [Header("¬” ‰ñ“]"), SerializeField] AudioClip smallBoxRollSE;
     [Header("¬” ‰ñ“]2"), SerializeField] AudioClip smallBoxRollSE2;
     [Header("¬” ‚ª‚Â‚Ô‚³‚ê‚½‚Æ‚«"), SerializeField] AudioClip finishSE;
     [Header("ƒŠƒUƒ‹ƒgƒ{ƒ^ƒ“‚ª‰Ÿ‚³‚ê‚½"), SerializeField] AudioClip resultButtonSE;
-
-    public static SoundManager instance;
+    
+    public static SEManager instance;
 
     private void Start()
     {
@@ -20,6 +20,8 @@ public class SoundManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        DontDestroyOnLoad(gameObject);
     }
 
     public void BigBoxRolltSEPlaying(AudioSource _audioSource)

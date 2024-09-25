@@ -3,7 +3,7 @@ using UnityEngine;
 public class CharactorRoot : MonoBehaviour
 {
     [SerializeField] private Player[] player;
-    [SerializeField] private MeshRenderer[] meshrenderer;    
+    [SerializeField] private MeshRenderer[] meshrenderer;
 
     private int childCount;
     public int ChildCount { get => childCount; }    

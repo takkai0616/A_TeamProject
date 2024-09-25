@@ -29,7 +29,7 @@ public class SelectManager : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        SelectCharactor();
+        PressedSelectButton();
         CancelCharactor();
 
         //全てのコントローラーが決定し終わったら
@@ -53,7 +53,7 @@ public class SelectManager : MonoBehaviour
         SceneManager.LoadScene("MainScene");//シーン遷移
     }
 
-    private void SelectCharactor()
+    private void PressedSelectButton()
     {
         //ToDoマジックナンバー削除
      
@@ -82,13 +82,20 @@ public class SelectManager : MonoBehaviour
                 continue;
             }
 
-            if (!JudgeAvailability(_num, i)) return;
+            //animationを再生
+            if (isDecision[i] && (CommonData.useCharactorNum[i] == _num))//コントローラーが決定済みかつ登録されたボタンの番号と入力されたボタンが一致していたら
+            {
 
-            preDecisionInfoImage[_num].enabled = false;
-            charactorRoot.ActivateSelectPlayer(_num);
-            CommonData.useCharactorNum[i] = _num;
-            charactorRoot.SetIsDecidion(_num, true);
-            isDecision[i] = true;
+                return;
+            }
+
+            if (!JudgeAvailability(_num, i)) return;//コントローラーとキャラクターが未決定か判定
+
+            preDecisionInfoImage[_num].enabled = false;//ボタンを押してくださいを表示するImageを消す
+            charactorRoot.ActivateSelectPlayer(_num);//キャラクターのMeshRendererをアクティブにする
+            CommonData.useCharactorNum[i] = _num;//コントローラーの番号の配列の位置にボタンの番号を登録
+            charactorRoot.SetIsDecidion(_num, true);//キャラクター自身が決められていると設定
+            isDecision[i] = true;//コントローラーが決められていると設定
             break;
         }
     }
@@ -107,8 +114,13 @@ public class SelectManager : MonoBehaviour
             isDecision[i] = false;
         }
     }
-
-    //
+    
+    /// <summary>
+    /// キャラクターとコントローラーが未設定か確認
+    /// </summary>
+    /// <param name="_num"></param>
+    /// <param name="_controllerNum"></param>
+    /// <returns></returns>
     private bool JudgeAvailability(int _num, int _controllerNum)
     {
         if (charactorRoot.GetIsDecision(_num)) return false;
