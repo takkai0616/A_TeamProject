@@ -49,3 +49,6 @@ MonoBehaviour:
   smallBoxRollSE2: {fileID: 8300000, guid: 543621fc3a4127a46b9848d5c67497e6, type: 3}
   finishSE: {fileID: 8300000, guid: 647231dab1af81f4faaaa06ecd862f6b, type: 3}
   resultButtonSE: {fileID: 8300000, guid: 01adfe7905b223545b58b49950afcbf7, type: 3}
+  cursorSE: {fileID: 0}
+  cancelSE: {fileID: 8300000, guid: c2f999d14c86e084a8df193687291dd0, type: 3}
+  decisionSE: {fileID: 8300000, guid: 1245f79338bb18e42a9ce406a44d6d0d, type: 3}

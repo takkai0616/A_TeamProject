@@ -7,7 +7,10 @@ public class SEManager : MonoBehaviour
     [Header("小箱回転2"), SerializeField] AudioClip smallBoxRollSE2;
     [Header("小箱がつぶされたとき"), SerializeField] AudioClip finishSE;
     [Header("リザルトボタンが押された"), SerializeField] AudioClip resultButtonSE;
-    
+    [Header("カーソル移動"), SerializeField] AudioClip cursorSE;
+    [Header("キャンセル"), SerializeField] AudioClip cancelSE;
+    [Header("決定ボタン"), SerializeField] AudioClip decisionSE;    
+
     public static SEManager instance;
 
     private void Start()
@@ -56,6 +59,27 @@ public class SEManager : MonoBehaviour
     {
         _audioSource.Stop();
         _audioSource.clip = resultButtonSE;
+        _audioSource.Play();
+    }
+
+    public void CursorSEPlaying(AudioSource _audioSource)
+    {
+        _audioSource.Stop();
+        _audioSource.clip = cursorSE;
+        _audioSource.Play();
+    }
+
+    public void CancelSEPlaying(AudioSource _audioSource)
+    {
+        _audioSource.Stop();
+        _audioSource.clip = cancelSE;
+        _audioSource.Play();
+    }
+
+    public void DecisionSEPlaying(AudioSource _audioSource)
+    {
+        _audioSource.Stop();
+        _audioSource.clip = decisionSE;
         _audioSource.Play();
     }
 }

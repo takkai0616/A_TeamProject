@@ -9,12 +9,19 @@ public class SelectManager : MonoBehaviour
     [SerializeField] private Image[] preDecisionInfoImage;//選択する前のテキストイメージ
     [SerializeField] private Image[] oKImage;//OKを表示するイメージ
     [SerializeField] private Sprite[] oKSprite;//OK/NO スプライト
+    [SerializeField] private AudioSource audioSource;
 
     private bool[] isDecision;//決定したかどうか
     private bool[] pressStart;//スタートボタンを押したか
 
+    private GameObject mainSelectBGMObj;
+    private BGMMainSelect bgmMainSelect;
+
+
     private void Start()
     {
+        mainSelectBGMObj = GameObject.Find("BGMPlayer");
+        bgmMainSelect = mainSelectBGMObj.GetComponent<BGMMainSelect>();
         charactorRoot.OnStart();
         isDecision = new bool[charactorRoot.ChildCount];
         pressStart = new bool[charactorRoot.ChildCount];
@@ -44,6 +51,7 @@ public class SelectManager : MonoBehaviour
         {
             if (!Gamepad.all[i].startButton.wasPressedThisFrame) continue;
             if(!isDecision[i]) continue;
+            SEManager.instance.DecisionSEPlaying(audioSource);
             pressStart[i] = true;
             oKImage[CommonData.useCharactorNum[i]].sprite = oKSprite[1];
         }
@@ -53,6 +61,7 @@ public class SelectManager : MonoBehaviour
             if (!pressStart[i]) return;
         }
         charactorRoot.OnDontDestroyScene();  //キャラクターをDontDestroyに上げる
+        bgmMainSelect.OnActiveScene();
         SceneManager.LoadScene("MainScene");//シーン遷移
     }
 
@@ -93,6 +102,7 @@ public class SelectManager : MonoBehaviour
 
             if (!JudgeAvailability(_num, i)) return;//コントローラーとキャラクターが未決定か判定
 
+            SEManager.instance.DecisionSEPlaying(audioSource);
             preDecisionInfoImage[_num].enabled = false;//ボタンを押してくださいを表示するImageを消す
             charactorRoot.ActivateSelectPlayer(_num);//キャラクターのMeshRendererをアクティブにする
             CommonData.useCharactorNum[i] = _num;//コントローラーの番号の配列の位置にボタンの番号を登録
@@ -109,6 +119,7 @@ public class SelectManager : MonoBehaviour
         {
             if (!Gamepad.all[i].selectButton.wasPressedThisFrame) continue;
             if (!isDecision[i]) continue;
+            SEManager.instance.CancelSEPlaying(audioSource);
             preDecisionInfoImage[CommonData.useCharactorNum[i]].enabled = true;
             charactorRoot.InActivateSelectPlayer(CommonData.useCharactorNum[i]);
             charactorRoot.SetIsDecidion(CommonData.useCharactorNum[i], false);
